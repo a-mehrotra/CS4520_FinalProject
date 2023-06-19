@@ -24,8 +24,8 @@ class SignUpView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        let color2 = UIColor(red: 103, green: 71, blue: 200)
-        self.backgroundColor = color2
+        let color = UIColor(red: 103, green: 71, blue: 200)
+        self.backgroundColor = color
         setUpAppTitle()
         setUpSloganTitle()
         setUpWelcomeTitle()
@@ -79,23 +79,39 @@ class SignUpView: UIView {
     func setupTextFieldUserName(){
         userNameTextField = UITextField()
         userNameTextField.placeholder = "Username"
-        userNameTextField.borderStyle = .roundedRect
+        userNameTextField.leftViewMode = .always
+        userNameTextField.leftView = UIView(frame: CGRect(x:0,y:0,width:5,height:0))
+        userNameTextField.layer.cornerRadius = 15.0
+//        userNameTextField.layer.borderWidth = 2.0
+        userNameTextField.backgroundColor = .white
+        userNameTextField.layer.borderColor = UIColor.white.cgColor
         userNameTextField.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(userNameTextField)
     }
     
-    func setupTextFieldEmail(){
+    func setupTextFieldEmail(){        
         emailTextField = UITextField()
         emailTextField.placeholder = "Email"
-        emailTextField.borderStyle = .roundedRect
+        emailTextField.leftViewMode = .always
+        emailTextField.leftView = UIView(frame: CGRect(x:0,y:0,width:5,height:0))
+        emailTextField.layer.cornerRadius = 15.0
+//        userNameTextField.layer.borderWidth = 2.0
+        emailTextField.backgroundColor = .white
+        emailTextField.layer.borderColor = UIColor.white.cgColor
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(emailTextField)
     }
     
+    
     func setupTextFieldDateOfBirth(){
         dateOfBirthTextField = UITextField()
         dateOfBirthTextField.placeholder = "MM/DD/YY"
-        dateOfBirthTextField.borderStyle = .roundedRect
+        dateOfBirthTextField.leftViewMode = .always
+        dateOfBirthTextField.leftView = UIView(frame: CGRect(x:0,y:0,width:5,height:0))
+        dateOfBirthTextField.layer.cornerRadius = 15.0
+//        userNameTextField.layer.borderWidth = 2.0
+        dateOfBirthTextField.backgroundColor = .white
+        dateOfBirthTextField.layer.borderColor = UIColor.white.cgColor
         dateOfBirthTextField.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(dateOfBirthTextField)
     }
@@ -103,15 +119,26 @@ class SignUpView: UIView {
     func setupTextFieldPassword(){
         passWordTextField = UITextField()
         passWordTextField.placeholder = "Password"
-        passWordTextField.borderStyle = .roundedRect
+        passWordTextField.leftViewMode = .always
+        passWordTextField.leftView = UIView(frame: CGRect(x:0,y:0,width:5,height:0))
+        passWordTextField.layer.cornerRadius = 15.0
+//        userNameTextField.layer.borderWidth = 2.0
+        passWordTextField.backgroundColor = .white
+        passWordTextField.layer.borderColor = UIColor.white.cgColor
         passWordTextField.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(passWordTextField)
+        
+        
     }
     
     func setUpSubmitButton(){
         submitButton = UIButton(type: .system)
         submitButton.setTitle("Submit", for: .normal)
+        submitButton.layer.cornerRadius = 15.0
+        submitButton.backgroundColor = UIColor(red: 54, green: 10, blue: 138)
+        submitButton.setTitleColor(.white, for: .normal)
         submitButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        submitButton.contentEdgeInsets =  UIEdgeInsets(top: 8, left: 30, bottom: 8, right: 30)
         submitButton.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(submitButton)
     }

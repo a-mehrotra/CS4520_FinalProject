@@ -14,6 +14,8 @@
 		668DCCED2A3FDAB500FF8F3C /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DCCEC2A3FDAB500FF8F3C /* SignUpView.swift */; };
 		668DCCF12A3FDB0000FF8F3C /* ProfileSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DCCF02A3FDB0000FF8F3C /* ProfileSettingView.swift */; };
 		668DCCF32A3FDB2400FF8F3C /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DCCF22A3FDB2400FF8F3C /* ProfileSettingViewController.swift */; };
+		668DCCF62A401C4700FF8F3C /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DCCF52A401C4700FF8F3C /* AddTripViewController.swift */; };
+		668DCCF82A401C5D00FF8F3C /* AddTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DCCF72A401C5D00FF8F3C /* AddTripView.swift */; };
 		A76231872A3E578D00F0C75F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A76231862A3E578D00F0C75F /* GoogleService-Info.plist */; };
 		A762318A2A3E57F800F0C75F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A76231892A3E57F800F0C75F /* FirebaseAuth */; };
 		A762318C2A3E57F800F0C75F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A762318B2A3E57F800F0C75F /* FirebaseFirestore */; };
@@ -35,6 +37,8 @@
 		668DCCEC2A3FDAB500FF8F3C /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		668DCCF02A3FDB0000FF8F3C /* ProfileSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingView.swift; sourceTree = "<group>"; };
 		668DCCF22A3FDB2400FF8F3C /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
+		668DCCF52A401C4700FF8F3C /* AddTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
+		668DCCF72A401C5D00FF8F3C /* AddTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripView.swift; sourceTree = "<group>"; };
 		A76231862A3E578D00F0C75F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A770F1182A2FE51900D7547B /* FinalProject_CS4520.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject_CS4520.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A770F11B2A2FE51900D7547B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,10 +104,35 @@
 		668DCCF42A3FDB3800FF8F3C /* Profile Setting Screen */ = {
 			isa = PBXGroup;
 			children = (
+				668DCCFB2A401DB100FF8F3C /* View */,
 				668DCCF22A3FDB2400FF8F3C /* ProfileSettingViewController.swift */,
-				668DCCF02A3FDB0000FF8F3C /* ProfileSettingView.swift */,
 			);
 			path = "Profile Setting Screen";
+			sourceTree = "<group>";
+		};
+		668DCCF92A401C6300FF8F3C /* Add Trip Screen */ = {
+			isa = PBXGroup;
+			children = (
+				668DCCFA2A401C7800FF8F3C /* View */,
+				668DCCF52A401C4700FF8F3C /* AddTripViewController.swift */,
+			);
+			path = "Add Trip Screen";
+			sourceTree = "<group>";
+		};
+		668DCCFA2A401C7800FF8F3C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				668DCCF72A401C5D00FF8F3C /* AddTripView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		668DCCFB2A401DB100FF8F3C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				668DCCF02A3FDB0000FF8F3C /* ProfileSettingView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		A770F10F2A2FE51900D7547B = {
@@ -127,6 +156,7 @@
 			children = (
 				A770F11B2A2FE51900D7547B /* AppDelegate.swift */,
 				A770F11D2A2FE51900D7547B /* SceneDelegate.swift */,
+				668DCCF92A401C6300FF8F3C /* Add Trip Screen */,
 				668DCCF42A3FDB3800FF8F3C /* Profile Setting Screen */,
 				668DCCEE2A3FDACD00FF8F3C /* LogIn SignUp Screen */,
 				668DCCE42A3FD9DE00FF8F3C /* Main Screen */,
@@ -227,9 +257,11 @@
 				668DCCED2A3FDAB500FF8F3C /* SignUpView.swift in Sources */,
 				A770F11E2A2FE51900D7547B /* SceneDelegate.swift in Sources */,
 				668DCCF12A3FDB0000FF8F3C /* ProfileSettingView.swift in Sources */,
+				668DCCF62A401C4700FF8F3C /* AddTripViewController.swift in Sources */,
 				668DCCF32A3FDB2400FF8F3C /* ProfileSettingViewController.swift in Sources */,
 				668DCCE32A3FD9D700FF8F3C /* MainScreenView.swift in Sources */,
 				668DCCE72A3FDA3D00FF8F3C /* SignUpViewController.swift in Sources */,
+				668DCCF82A401C5D00FF8F3C /* AddTripView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

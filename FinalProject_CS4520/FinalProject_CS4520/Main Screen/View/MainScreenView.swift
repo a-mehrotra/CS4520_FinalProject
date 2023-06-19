@@ -21,8 +21,8 @@ class MainScreenView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        let color2 = UIColor(red: 103, green: 71, blue: 200)
-        self.backgroundColor = color2
+        let color = UIColor(red: 103, green: 71, blue: 200)
+        self.backgroundColor = color
         setUpAppTitle()
         setUpSloganTitle()
         setUpWelcomeBackTitle()
@@ -81,7 +81,11 @@ class MainScreenView: UIView {
     func setUpLoginButton(){
         loginButton = UIButton(type: .system)
         loginButton.setTitle("Login", for: .normal)
+        loginButton.layer.cornerRadius = 15.0
+        loginButton.backgroundColor = UIColor(red: 54, green: 10, blue: 138)
+        loginButton.setTitleColor(.white, for: .normal)
         loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        loginButton.contentEdgeInsets =  UIEdgeInsets(top: 12, left: 126, bottom: 12, right: 126)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(loginButton)
     }
@@ -89,7 +93,11 @@ class MainScreenView: UIView {
     func setUpSignUpButton(){
         signupButton = UIButton(type: .system)
         signupButton.setTitle("SignUp", for: .normal)
+        signupButton.layer.cornerRadius = 15.0
+        signupButton.backgroundColor = UIColor(red: 54, green: 10, blue: 138)
+        signupButton.setTitleColor(.white, for: .normal)
         signupButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        signupButton.contentEdgeInsets =  UIEdgeInsets(top: 12, left: 120, bottom: 12, right: 120)
         signupButton.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(signupButton)
     }
