@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		668DCCE32A3FD9D700FF8F3C /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DCCE22A3FD9D700FF8F3C /* MainScreenView.swift */; };
+		668DCCE72A3FDA3D00FF8F3C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DCCE62A3FDA3D00FF8F3C /* SignUpViewController.swift */; };
+		668DCCE92A3FDA6900FF8F3C /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DCCE82A3FDA6900FF8F3C /* LogInViewController.swift */; };
+		668DCCEB2A3FDA9700FF8F3C /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DCCEA2A3FDA9700FF8F3C /* LogInView.swift */; };
+		668DCCED2A3FDAB500FF8F3C /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DCCEC2A3FDAB500FF8F3C /* SignUpView.swift */; };
+		668DCCF12A3FDB0000FF8F3C /* ProfileSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DCCF02A3FDB0000FF8F3C /* ProfileSettingView.swift */; };
+		668DCCF32A3FDB2400FF8F3C /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DCCF22A3FDB2400FF8F3C /* ProfileSettingViewController.swift */; };
 		A76231872A3E578D00F0C75F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A76231862A3E578D00F0C75F /* GoogleService-Info.plist */; };
 		A762318A2A3E57F800F0C75F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A76231892A3E57F800F0C75F /* FirebaseAuth */; };
 		A762318C2A3E57F800F0C75F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A762318B2A3E57F800F0C75F /* FirebaseFirestore */; };
@@ -21,6 +28,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		668DCCE22A3FD9D700FF8F3C /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
+		668DCCE62A3FDA3D00FF8F3C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		668DCCE82A3FDA6900FF8F3C /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		668DCCEA2A3FDA9700FF8F3C /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		668DCCEC2A3FDAB500FF8F3C /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		668DCCF02A3FDB0000FF8F3C /* ProfileSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingView.swift; sourceTree = "<group>"; };
+		668DCCF22A3FDB2400FF8F3C /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
 		A76231862A3E578D00F0C75F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A770F1182A2FE51900D7547B /* FinalProject_CS4520.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject_CS4520.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A770F11B2A2FE51900D7547B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +61,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		668DCCE42A3FD9DE00FF8F3C /* Main Screen */ = {
+			isa = PBXGroup;
+			children = (
+				668DCCE52A3FD9FC00FF8F3C /* View */,
+				A770F11F2A2FE51900D7547B /* ViewController.swift */,
+			);
+			path = "Main Screen";
+			sourceTree = "<group>";
+		};
+		668DCCE52A3FD9FC00FF8F3C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				668DCCE22A3FD9D700FF8F3C /* MainScreenView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		668DCCEE2A3FDACD00FF8F3C /* LogIn SignUp Screen */ = {
+			isa = PBXGroup;
+			children = (
+				668DCCEF2A3FDAE000FF8F3C /* View */,
+				668DCCE62A3FDA3D00FF8F3C /* SignUpViewController.swift */,
+				668DCCE82A3FDA6900FF8F3C /* LogInViewController.swift */,
+			);
+			path = "LogIn SignUp Screen";
+			sourceTree = "<group>";
+		};
+		668DCCEF2A3FDAE000FF8F3C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				668DCCEC2A3FDAB500FF8F3C /* SignUpView.swift */,
+				668DCCEA2A3FDA9700FF8F3C /* LogInView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		668DCCF42A3FDB3800FF8F3C /* Profile Setting Screen */ = {
+			isa = PBXGroup;
+			children = (
+				668DCCF22A3FDB2400FF8F3C /* ProfileSettingViewController.swift */,
+				668DCCF02A3FDB0000FF8F3C /* ProfileSettingView.swift */,
+			);
+			path = "Profile Setting Screen";
+			sourceTree = "<group>";
+		};
 		A770F10F2A2FE51900D7547B = {
 			isa = PBXGroup;
 			children = (
@@ -68,7 +127,9 @@
 			children = (
 				A770F11B2A2FE51900D7547B /* AppDelegate.swift */,
 				A770F11D2A2FE51900D7547B /* SceneDelegate.swift */,
-				A770F11F2A2FE51900D7547B /* ViewController.swift */,
+				668DCCF42A3FDB3800FF8F3C /* Profile Setting Screen */,
+				668DCCEE2A3FDACD00FF8F3C /* LogIn SignUp Screen */,
+				668DCCE42A3FD9DE00FF8F3C /* Main Screen */,
 				A770F1212A2FE51900D7547B /* Main.storyboard */,
 				A770F1242A2FE51A00D7547B /* Assets.xcassets */,
 				A770F1262A2FE51A00D7547B /* LaunchScreen.storyboard */,
@@ -160,8 +221,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A770F1202A2FE51900D7547B /* ViewController.swift in Sources */,
+				668DCCEB2A3FDA9700FF8F3C /* LogInView.swift in Sources */,
 				A770F11C2A2FE51900D7547B /* AppDelegate.swift in Sources */,
+				668DCCE92A3FDA6900FF8F3C /* LogInViewController.swift in Sources */,
+				668DCCED2A3FDAB500FF8F3C /* SignUpView.swift in Sources */,
 				A770F11E2A2FE51900D7547B /* SceneDelegate.swift in Sources */,
+				668DCCF12A3FDB0000FF8F3C /* ProfileSettingView.swift in Sources */,
+				668DCCF32A3FDB2400FF8F3C /* ProfileSettingViewController.swift in Sources */,
+				668DCCE32A3FD9D700FF8F3C /* MainScreenView.swift in Sources */,
+				668DCCE72A3FDA3D00FF8F3C /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
