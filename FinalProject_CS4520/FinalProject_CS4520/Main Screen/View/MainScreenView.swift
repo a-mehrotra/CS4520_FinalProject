@@ -82,8 +82,8 @@ class MainScreenView: UIView {
         loginButton = UIButton(type: .system)
         loginButton.setTitle("Login", for: .normal)
         loginButton.layer.cornerRadius = 15.0
-        loginButton.backgroundColor = UIColor(red: 54, green: 10, blue: 138)
-        loginButton.setTitleColor(.white, for: .normal)
+        loginButton.backgroundColor = .white
+        loginButton.setTitleColor(UIColor(red: 103, green: 71, blue: 200), for: .normal)
         loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         loginButton.contentEdgeInsets =  UIEdgeInsets(top: 12, left: 126, bottom: 12, right: 126)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
@@ -93,9 +93,9 @@ class MainScreenView: UIView {
     func setUpSignUpButton(){
         signupButton = UIButton(type: .system)
         signupButton.setTitle("SignUp", for: .normal)
+        signupButton.setTitleColor(UIColor(red: 103, green: 71, blue: 200), for: .normal)
         signupButton.layer.cornerRadius = 15.0
-        signupButton.backgroundColor = UIColor(red: 54, green: 10, blue: 138)
-        signupButton.setTitleColor(.white, for: .normal)
+        signupButton.backgroundColor = .white
         signupButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         signupButton.contentEdgeInsets =  UIEdgeInsets(top: 12, left: 120, bottom: 12, right: 120)
         signupButton.translatesAutoresizingMaskIntoConstraints = false

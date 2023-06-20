@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     }
     
     @objc func onSignUpButtonTapped(){
-        var signUpViewController = SignUpViewController()
+        let signUpViewController = SignUpViewController()
         navigationController?.pushViewController(signUpViewController, animated: true)
         
 //        var profileSettingViewController = ProfileSettingViewController()
@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     }
     
     @objc func onLogInButtonTapped(){
-        var logInViewController = LogInViewController()
+        let logInViewController = LogInViewController()
         navigationController?.pushViewController(logInViewController, animated: true)
     }
 
