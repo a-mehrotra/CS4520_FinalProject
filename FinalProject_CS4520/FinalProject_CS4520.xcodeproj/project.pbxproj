@@ -198,7 +198,6 @@
 		A770F10F2A2FE51900D7547B = {
 			isa = PBXGroup;
 			children = (
-				B3292FE12A43744C009EAE23 /* Progress Indicator */,
 				A770F11A2A2FE51900D7547B /* FinalProject_CS4520 */,
 				A770F1192A2FE51900D7547B /* Products */,
 			);
@@ -215,6 +214,7 @@
 		A770F11A2A2FE51900D7547B /* FinalProject_CS4520 */ = {
 			isa = PBXGroup;
 			children = (
+				B3292FE12A43744C009EAE23 /* Progress Indicator */,
 				A770F11B2A2FE51900D7547B /* AppDelegate.swift */,
 				A770F11D2A2FE51900D7547B /* SceneDelegate.swift */,
 				668DCD062A416CEA00FF8F3C /* Trip.swift */,
