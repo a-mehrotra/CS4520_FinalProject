@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
 
 class ViewController: UIViewController {
     
     let mainScreen = MainScreenView()
+    
+    var handleAuth: AuthStateDidChangeListenerHandle?
     
     override func loadView() {
         view = mainScreen
