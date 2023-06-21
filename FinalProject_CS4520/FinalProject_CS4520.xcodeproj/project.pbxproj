@@ -21,6 +21,8 @@
 		668DCD032A41689B00FF8F3C /* TripsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DCD022A41689B00FF8F3C /* TripsTableViewCell.swift */; };
 		668DCD052A416B9D00FF8F3C /* TripsTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DCD042A416B9D00FF8F3C /* TripsTableViewManager.swift */; };
 		668DCD072A416CEA00FF8F3C /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DCD062A416CEA00FF8F3C /* Trip.swift */; };
+		668DCD092A42793F00FF8F3C /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DCD082A42793F00FF8F3C /* AddPostViewController.swift */; };
+		668DCD0B2A42798E00FF8F3C /* AddPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DCD0A2A42798E00FF8F3C /* AddPostView.swift */; };
 		A76231872A3E578D00F0C75F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A76231862A3E578D00F0C75F /* GoogleService-Info.plist */; };
 		A762318A2A3E57F800F0C75F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A76231892A3E57F800F0C75F /* FirebaseAuth */; };
 		A762318C2A3E57F800F0C75F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A762318B2A3E57F800F0C75F /* FirebaseFirestore */; };
@@ -53,6 +55,8 @@
 		668DCD022A41689B00FF8F3C /* TripsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTableViewCell.swift; sourceTree = "<group>"; };
 		668DCD042A416B9D00FF8F3C /* TripsTableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTableViewManager.swift; sourceTree = "<group>"; };
 		668DCD062A416CEA00FF8F3C /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		668DCD082A42793F00FF8F3C /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
+		668DCD0A2A42798E00FF8F3C /* AddPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostView.swift; sourceTree = "<group>"; };
 		A76231862A3E578D00F0C75F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A770F1182A2FE51900D7547B /* FinalProject_CS4520.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject_CS4520.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A770F11B2A2FE51900D7547B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +178,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		668DCD0C2A42799700FF8F3C /* Add Post Screen */ = {
+			isa = PBXGroup;
+			children = (
+				668DCD0D2A4279A300FF8F3C /* View */,
+				668DCD082A42793F00FF8F3C /* AddPostViewController.swift */,
+			);
+			path = "Add Post Screen";
+			sourceTree = "<group>";
+		};
+		668DCD0D2A4279A300FF8F3C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				668DCD0A2A42798E00FF8F3C /* AddPostView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		A770F10F2A2FE51900D7547B = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +218,7 @@
 				A770F11B2A2FE51900D7547B /* AppDelegate.swift */,
 				A770F11D2A2FE51900D7547B /* SceneDelegate.swift */,
 				668DCD062A416CEA00FF8F3C /* Trip.swift */,
+				668DCD0C2A42799700FF8F3C /* Add Post Screen */,
 				668DCD002A41645F00FF8F3C /* Homepage Screen */,
 				668DCCF92A401C6300FF8F3C /* Add Trip Screen */,
 				668DCCF42A3FDB3800FF8F3C /* Profile Setting Screen */,
@@ -306,12 +328,14 @@
 				668DCCFD2A41644400FF8F3C /* UserHomePageView.swift in Sources */,
 				668DCCEB2A3FDA9700FF8F3C /* LogInView.swift in Sources */,
 				A770F11C2A2FE51900D7547B /* AppDelegate.swift in Sources */,
+				668DCD0B2A42798E00FF8F3C /* AddPostView.swift in Sources */,
 				668DCCE92A3FDA6900FF8F3C /* LogInViewController.swift in Sources */,
 				668DCCED2A3FDAB500FF8F3C /* SignUpView.swift in Sources */,
 				668DCD052A416B9D00FF8F3C /* TripsTableViewManager.swift in Sources */,
 				A770F11E2A2FE51900D7547B /* SceneDelegate.swift in Sources */,
 				668DCCF12A3FDB0000FF8F3C /* ProfileSettingView.swift in Sources */,
 				668DCCFF2A41645900FF8F3C /* UserHomePageViewController.swift in Sources */,
+				668DCD092A42793F00FF8F3C /* AddPostViewController.swift in Sources */,
 				668DCD032A41689B00FF8F3C /* TripsTableViewCell.swift in Sources */,
 				B3292FE32A437471009EAE23 /* ProgressSpinnerViewController.swift in Sources */,
 				B3292FE72A4374C1009EAE23 /* LoginProgressIndicatorManager.swift in Sources */,

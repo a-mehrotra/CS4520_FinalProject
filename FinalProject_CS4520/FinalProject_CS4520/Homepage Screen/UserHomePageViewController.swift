@@ -34,14 +34,30 @@ class UserHomePageViewController: UIViewController {
             image: UIImage(systemName: "person.fill"),
             style: .plain,
             target: self,
-            action: #selector(onLogOutBarButtonTapped)
-        )  
+            action: #selector(profileBarButtonTapped)
+        )
+        
+        let addPostIcon = UIBarButtonItem(
+            image: UIImage(systemName: "plus.app.fill"),
+            style: .plain,
+            target: self,
+            action: #selector(addNewPostButtonTapped)
+        )
+        
         navigationItem.rightBarButtonItems = [barIcon]
+        navigationItem.leftBarButtonItem = addPostIcon
         
     }
     
     
-    @objc func onLogOutBarButtonTapped(){
+    @objc func profileBarButtonTapped(){
+        var profileSettingViewController = ProfileSettingViewController()
+        navigationController?.pushViewController(profileSettingViewController, animated: true)
+    }
+    
+    @objc func addNewPostButtonTapped(){
+        var addPostViewController = AddPostViewController()
+        navigationController?.pushViewController(addPostViewController, animated: true)
     }
     
     
