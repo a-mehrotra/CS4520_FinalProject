@@ -52,7 +52,7 @@ class SignUpViewController: UIViewController {
                         
                     }else{
                         //MARK: there is a error creating the user...
-                        print(error)
+                        self.showErrorAlert(text: "Could not create a user")
                     }
                 })
             }
