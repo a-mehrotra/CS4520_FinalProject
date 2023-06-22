@@ -72,9 +72,9 @@ class LogInView: UIView {
     
     func setupTextFieldUserName(){
         userNameTextField = UITextField()
-        userNameTextField.placeholder = "Username"
+        userNameTextField.placeholder = "Email"
         userNameTextField.leftViewMode = .always
-        userNameTextField.leftView = UIView(frame: CGRect(x:0,y:0,width:5,height:0))
+        userNameTextField.leftView = UIView(frame: CGRect(x:0,y:0,width:8,height:0))
         userNameTextField.layer.cornerRadius = 15.0
 //        userNameTextField.layer.borderWidth = 2.0
         userNameTextField.backgroundColor = .white
@@ -87,7 +87,7 @@ class LogInView: UIView {
         passWordTextField = UITextField()
         passWordTextField.placeholder = "Password"
         passWordTextField.leftViewMode = .always
-        passWordTextField.leftView = UIView(frame: CGRect(x:0,y:0,width:5,height:0))
+        passWordTextField.leftView = UIView(frame: CGRect(x:0,y:0,width:8,height:0))
         passWordTextField.layer.cornerRadius = 15.0
 //        passWordTextField.layer.borderWidth = 2.0
         passWordTextField.backgroundColor = .white

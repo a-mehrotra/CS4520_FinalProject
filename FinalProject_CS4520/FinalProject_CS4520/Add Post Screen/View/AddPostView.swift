@@ -50,7 +50,7 @@ class AddPostView: UIView {
         captionTextField = UITextField()
         captionTextField.placeholder = "Caption"
         captionTextField.leftViewMode = .always
-        captionTextField.leftView = UIView(frame: CGRect(x:0,y:0,width:5,height:0))
+        captionTextField.leftView = UIView(frame: CGRect(x:0,y:0,width:8,height:0))
         captionTextField.layer.cornerRadius = 15.0
 //        userNameTextField.layer.borderWidth = 2.0
         captionTextField.backgroundColor = .white
@@ -63,7 +63,7 @@ class AddPostView: UIView {
         locationTextField = UITextField()
         locationTextField.placeholder = "Location"
         locationTextField.leftViewMode = .always
-        locationTextField.leftView = UIView(frame: CGRect(x:0,y:0,width:5,height:0))
+        locationTextField.leftView = UIView(frame: CGRect(x:0,y:0,width:8,height:0))
         locationTextField.layer.cornerRadius = 15.0
 //        userNameTextField.layer.borderWidth = 2.0
         locationTextField.backgroundColor = .white
@@ -77,7 +77,7 @@ class AddPostView: UIView {
         dateAndTimeTextField = UITextField()
         dateAndTimeTextField.placeholder = "MM/DD/YY"
         dateAndTimeTextField.leftViewMode = .always
-        dateAndTimeTextField.leftView = UIView(frame: CGRect(x:0,y:0,width:5,height:0))
+        dateAndTimeTextField.leftView = UIView(frame: CGRect(x:0,y:0,width:8,height:0))
         dateAndTimeTextField.layer.cornerRadius = 15.0
 //        userNameTextField.layer.borderWidth = 2.0
         dateAndTimeTextField.backgroundColor = .white

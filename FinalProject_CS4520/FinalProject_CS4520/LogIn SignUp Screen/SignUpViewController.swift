@@ -87,6 +87,7 @@ class SignUpViewController: UIViewController {
             collectionUsers.document(id).setData(["email": email.lowercased(), "username": username, "dob": dob], completion: {(error) in
                 if error == nil{
                     let userHomePageViewController = UserHomePageViewController()
+                    //Example Data for UI testing
                     let tripExample1 = tripInfo(countryCity: "US", date: "05/22/2002", tripDes: "This is my 1st trip!")
                     let tripExample2 = tripInfo(countryCity: "Vietnam", date: "05/22/2002", tripDes: "This is my 2nd trip!")
                     let tripExample3 = tripInfo(countryCity: "Mexico", date: "05/22/2002", tripDes: "This is my 3rd trip!")
