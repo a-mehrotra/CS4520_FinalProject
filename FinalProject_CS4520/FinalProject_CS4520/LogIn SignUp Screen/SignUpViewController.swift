@@ -84,13 +84,6 @@ class SignUpViewController: UIViewController {
             collectionUsers.document(id).setData(["email": email.lowercased(), "username": username, "dob": dob], completion: {(error) in
                 if error == nil{
                     let userHomePageViewController = UserHomePageViewController()
-                    let tripExample1 = tripInfo(countryCity: "US", date: "05/22/2002", tripDes: "This is my 1st trip!")
-                    let tripExample2 = tripInfo(countryCity: "Vietnam", date: "05/22/2002", tripDes: "This is my 2nd trip!")
-                    let tripExample3 = tripInfo(countryCity: "Mexico", date: "05/22/2002", tripDes: "This is my 3rd trip!")
-                    
-                    userHomePageViewController.tripsArray.append(tripExample1)
-                    userHomePageViewController.tripsArray.append(tripExample2)
-                    userHomePageViewController.tripsArray.append(tripExample3)
                     
                     self.hideActivityIndicator()
                     
