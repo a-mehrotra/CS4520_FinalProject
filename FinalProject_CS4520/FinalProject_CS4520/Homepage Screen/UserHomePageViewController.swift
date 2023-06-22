@@ -6,11 +6,20 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class UserHomePageViewController: UIViewController {
     
     var tripsArray = [tripInfo]()
     let userHomePageView = UserHomePageView()
+    
+    var handleAuth: AuthStateDidChangeListenerHandle?
+    
+    var currentUser:FirebaseAuth.User?
+    
+    let database = Firestore.firestore()
     
     override func loadView() {
         view = userHomePageView
@@ -28,6 +37,44 @@ class UserHomePageViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tripsArray.removeAll()
+        
+        self.tripsArray = getTripsOfCurrentUser()
+        
+        self.userHomePageView.tableViewTrips.reloadData()
+        
+        
+    }
+    
+    
+    func getTripsOfCurrentUser() -> [tripInfo] {
+        var userRef: DocumentReference!
+        var listOfTrips = [tripInfo]()
+        userRef = self.database.collection("users").document((currentUser?.uid)!)
+         
+        self.database.collection("trips").whereField("userArray", arrayContains: userRef!).addSnapshotListener(includeMetadataChanges: false, listener: {querySnapshot, error in
+            
+            if let documents = querySnapshot?.documents {
+                self.tripsArray.removeAll()
+                for document in documents {
+                    do {
+                        let trip = try document.data(as: tripInfo.self)
+                        listOfTrips.append(trip)
+                    }
+                    catch {
+                        print(error)
+                    }
+                }
+            }
+            
+            
+        
+        })
+        return listOfTrips
+    }
     func setupRightBarButton(){
         //MARK: user is logged in...
         let barIcon = UIBarButtonItem(
