@@ -31,9 +31,6 @@ class SignUpViewController: UIViewController {
         
         
         registerNewAccount()
-        
-        
-        
     }
     
     func registerNewAccount(){

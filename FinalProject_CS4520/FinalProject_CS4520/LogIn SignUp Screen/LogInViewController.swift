@@ -10,7 +10,7 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class LogInViewController: UIViewController {
-
+    
     let logInView = LogInView()
     
     var handleAuth: AuthStateDidChangeListenerHandle?
@@ -20,7 +20,7 @@ class LogInViewController: UIViewController {
     override func loadView() {
         view = logInView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,7 +30,7 @@ class LogInViewController: UIViewController {
     @objc func onSubmitButtonTapped(){
         loginToAccount()
     }
-
+    
     
     func loginToAccount() {
         showActivityIndicator()
