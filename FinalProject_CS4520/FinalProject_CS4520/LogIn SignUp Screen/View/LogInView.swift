@@ -53,7 +53,7 @@ class LogInView: UIView {
     func setUpSloganTitle(){
         sloganTitle = UILabel()
         sloganTitle.textColor = .white
-        sloganTitle.text = "Here for all of yours Social Travel Need!"
+        sloganTitle.text = "Here for all of your Social Travel Needs!"
         sloganTitle.font = UIFont.systemFont(ofSize: 18)
         sloganTitle.textAlignment = .center
         sloganTitle.translatesAutoresizingMaskIntoConstraints = false
@@ -72,7 +72,7 @@ class LogInView: UIView {
     
     func setupTextFieldUserName(){
         userNameTextField = UITextField()
-        userNameTextField.placeholder = "Username"
+        userNameTextField.placeholder = "Email"
         userNameTextField.leftViewMode = .always
         userNameTextField.leftView = UIView(frame: CGRect(x:0,y:0,width:5,height:0))
         userNameTextField.layer.cornerRadius = 15.0

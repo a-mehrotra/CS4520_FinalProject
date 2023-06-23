@@ -28,12 +28,7 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func onSubmitButtonTapped(){
-        
-        
         registerNewAccount()
-        
-        
-        
     }
     
     func registerNewAccount(){
@@ -44,17 +39,28 @@ class SignUpViewController: UIViewController {
            let email = signUpView.emailTextField.text,
            let dob = signUpView.dateOfBirthTextField.text,
            let password = signUpView.passWordTextField.text {
-            if !name.isEmpty && !email.isEmpty && !password.isEmpty {
-                Auth.auth().createUser(withEmail: email.lowercased(), password: password, completion: {result, error in
-                    if error == nil{
-                        //MARK: the user creation is successful...
-                        self.initializeUserDataInFireBase(username: name, email: email, dob: dob)
-                        
-                    }else{
-                        //MARK: there is a error creating the user...
-                        print(error)
+            if !name.isEmpty && !email.isEmpty && !password.isEmpty && !dob.isEmpty {
+                if isValidEmail(email) {
+                    if isValidDOB(dob) {
+                        Auth.auth().createUser(withEmail: email.lowercased(), password: password, completion: {result, error in
+                            if error == nil{
+                                //MARK: the user creation is successful...
+                                self.initializeUserDataInFireBase(username: name, email: email, dob: dob)
+                                
+                            }else{
+                                //MARK: there is a error creating the user...
+                                self.showErrorAlert(text: "Error creating User (Could be related to already existing email / user")
+                            }
+                        })
                     }
-                })
+                    else {
+                        showErrorAlert(text: "Invalid DOB")
+                        hideActivityIndicator()
+                    }
+                } else {
+                    showErrorAlert(text: "Invalid Email")
+                    hideActivityIndicator()
+                }
             }
             else {
                 showErrorAlert(text: "Fields must not be empty")
@@ -63,6 +69,52 @@ class SignUpViewController: UIViewController {
         }
         
         
+    }
+    
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
+    
+    func isValidDOB(_ dob: String) -> Bool {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yy"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        
+        // Try parsing the DOB with slashes ("/")
+        if let date = dateFormatter.date(from: dob) {
+            let calendar = Calendar.current
+            let currentDate = Date()
+            let components = calendar.dateComponents([.year, .month, .day], from: date, to: currentDate)
+            
+            // Check if the calculated age is a valid range (e.g., not in the future and not too far in the past)
+            let minAge = 0  // Minimum age in years
+            let maxAge = 150  // Maximum age in years
+            if let years = components.year, let months = components.month, let days = components.day,
+               years >= minAge && years <= maxAge && (years > 0 || months > 0 || days >= 0) {
+                return true
+            }
+        }
+        
+        // Try parsing the DOB without slashes ("/")
+        dateFormatter.dateFormat = "MMddyy"
+        if let date = dateFormatter.date(from: dob) {
+            let calendar = Calendar.current
+            let currentDate = Date()
+            let components = calendar.dateComponents([.year, .month, .day], from: date, to: currentDate)
+            
+            // Check if the calculated age is a valid range (e.g., not in the future and not too far in the past)
+            let minAge = 0  // Minimum age in years
+            let maxAge = 150  // Maximum age in years
+            if let years = components.year, let months = components.month, let days = components.day,
+               years >= minAge && years <= maxAge && (years > 0 || months > 0 || days >= 0) {
+                return true
+            }
+        }
+        
+        return false
     }
     
     func initializeUserDataInFireBase(username: String, email: String, dob :String){
@@ -74,7 +126,7 @@ class SignUpViewController: UIViewController {
                 
             }else{
                 //MARK: there was an error updating the profile...
-                print("Error occured: \(String(describing: error))")
+                self.showErrorAlert(text: "Error updating the profile")
             }
         })
     }
@@ -86,26 +138,12 @@ class SignUpViewController: UIViewController {
         do{
             collectionUsers.document(id).setData(["email": email.lowercased(), "username": username, "dob": dob], completion: {(error) in
                 if error == nil{
-                    let userHomePageViewController = UserHomePageViewController()
-                    let tripExample1 = tripInfo(countryCity: "US", date: "05/22/2002", tripDes: "This is my 1st trip!")
-                    let tripExample2 = tripInfo(countryCity: "Vietnam", date: "05/22/2002", tripDes: "This is my 2nd trip!")
-                    let tripExample3 = tripInfo(countryCity: "Mexico", date: "05/22/2002", tripDes: "This is my 3rd trip!")
-                    
-                    userHomePageViewController.tripsArray.append(tripExample1)
-                    userHomePageViewController.tripsArray.append(tripExample2)
-                    userHomePageViewController.tripsArray.append(tripExample3)
-                    
                     self.hideActivityIndicator()
-                    
                     self.navigationController?.popViewController(animated: true)
-                    self.navigationController?.pushViewController(userHomePageViewController, animated: true)
                 }
             })
             
         }
-        
-        
-        
     }
     
     func showErrorAlert(text:String) {

@@ -16,10 +16,7 @@
 		668DCCF32A3FDB2400FF8F3C /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DCCF22A3FDB2400FF8F3C /* ProfileSettingViewController.swift */; };
 		668DCCF62A401C4700FF8F3C /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DCCF52A401C4700FF8F3C /* AddTripViewController.swift */; };
 		668DCCF82A401C5D00FF8F3C /* AddTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DCCF72A401C5D00FF8F3C /* AddTripView.swift */; };
-		668DCCFD2A41644400FF8F3C /* UserHomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DCCFC2A41644400FF8F3C /* UserHomePageView.swift */; };
-		668DCCFF2A41645900FF8F3C /* UserHomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DCCFE2A41645900FF8F3C /* UserHomePageViewController.swift */; };
 		668DCD032A41689B00FF8F3C /* TripsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DCD022A41689B00FF8F3C /* TripsTableViewCell.swift */; };
-		668DCD052A416B9D00FF8F3C /* TripsTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DCD042A416B9D00FF8F3C /* TripsTableViewManager.swift */; };
 		668DCD072A416CEA00FF8F3C /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DCD062A416CEA00FF8F3C /* Trip.swift */; };
 		668DCD092A42793F00FF8F3C /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DCD082A42793F00FF8F3C /* AddPostViewController.swift */; };
 		668DCD0B2A42798E00FF8F3C /* AddPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668DCD0A2A42798E00FF8F3C /* AddPostView.swift */; };
@@ -38,6 +35,7 @@
 		B3292FE52A437491009EAE23 /* ProgressSpinnerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3292FE42A437491009EAE23 /* ProgressSpinnerDelegate.swift */; };
 		B3292FE72A4374C1009EAE23 /* LoginProgressIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3292FE62A4374C1009EAE23 /* LoginProgressIndicatorManager.swift */; };
 		B3292FE92A4374EC009EAE23 /* SignUpProgressIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3292FE82A4374EC009EAE23 /* SignUpProgressIndicatorManager.swift */; };
+		F42D570C2A4561E8009CB0D7 /* TripsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42D570B2A4561E8009CB0D7 /* TripsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,10 +48,7 @@
 		668DCCF22A3FDB2400FF8F3C /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
 		668DCCF52A401C4700FF8F3C /* AddTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
 		668DCCF72A401C5D00FF8F3C /* AddTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripView.swift; sourceTree = "<group>"; };
-		668DCCFC2A41644400FF8F3C /* UserHomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomePageView.swift; sourceTree = "<group>"; };
-		668DCCFE2A41645900FF8F3C /* UserHomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomePageViewController.swift; sourceTree = "<group>"; };
 		668DCD022A41689B00FF8F3C /* TripsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTableViewCell.swift; sourceTree = "<group>"; };
-		668DCD042A416B9D00FF8F3C /* TripsTableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTableViewManager.swift; sourceTree = "<group>"; };
 		668DCD062A416CEA00FF8F3C /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		668DCD082A42793F00FF8F3C /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
 		668DCD0A2A42798E00FF8F3C /* AddPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostView.swift; sourceTree = "<group>"; };
@@ -70,6 +65,7 @@
 		B3292FE42A437491009EAE23 /* ProgressSpinnerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSpinnerDelegate.swift; sourceTree = "<group>"; };
 		B3292FE62A4374C1009EAE23 /* LoginProgressIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProgressIndicatorManager.swift; sourceTree = "<group>"; };
 		B3292FE82A4374EC009EAE23 /* SignUpProgressIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProgressIndicatorManager.swift; sourceTree = "<group>"; };
+		F42D570B2A4561E8009CB0D7 /* TripsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +88,7 @@
 			children = (
 				668DCCE52A3FD9FC00FF8F3C /* View */,
 				A770F11F2A2FE51900D7547B /* ViewController.swift */,
+				F42D570B2A4561E8009CB0D7 /* TripsTableViewController.swift */,
 			);
 			path = "Main Screen";
 			sourceTree = "<group>";
@@ -99,6 +96,7 @@
 		668DCCE52A3FD9FC00FF8F3C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				668DCD022A41689B00FF8F3C /* TripsTableViewCell.swift */,
 				668DCCE22A3FD9D700FF8F3C /* MainScreenView.swift */,
 			);
 			path = View;
@@ -159,25 +157,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		668DCD002A41645F00FF8F3C /* Homepage Screen */ = {
-			isa = PBXGroup;
-			children = (
-				668DCD012A41646E00FF8F3C /* View */,
-				668DCCFE2A41645900FF8F3C /* UserHomePageViewController.swift */,
-				668DCD042A416B9D00FF8F3C /* TripsTableViewManager.swift */,
-			);
-			path = "Homepage Screen";
-			sourceTree = "<group>";
-		};
-		668DCD012A41646E00FF8F3C /* View */ = {
-			isa = PBXGroup;
-			children = (
-				668DCD022A41689B00FF8F3C /* TripsTableViewCell.swift */,
-				668DCCFC2A41644400FF8F3C /* UserHomePageView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		668DCD0C2A42799700FF8F3C /* Add Post Screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,7 +198,6 @@
 				A770F11D2A2FE51900D7547B /* SceneDelegate.swift */,
 				668DCD062A416CEA00FF8F3C /* Trip.swift */,
 				668DCD0C2A42799700FF8F3C /* Add Post Screen */,
-				668DCD002A41645F00FF8F3C /* Homepage Screen */,
 				668DCCF92A401C6300FF8F3C /* Add Trip Screen */,
 				668DCCF42A3FDB3800FF8F3C /* Profile Setting Screen */,
 				668DCCEE2A3FDACD00FF8F3C /* LogIn SignUp Screen */,
@@ -325,22 +303,20 @@
 			files = (
 				A770F1202A2FE51900D7547B /* ViewController.swift in Sources */,
 				B3292FE92A4374EC009EAE23 /* SignUpProgressIndicatorManager.swift in Sources */,
-				668DCCFD2A41644400FF8F3C /* UserHomePageView.swift in Sources */,
 				668DCCEB2A3FDA9700FF8F3C /* LogInView.swift in Sources */,
 				A770F11C2A2FE51900D7547B /* AppDelegate.swift in Sources */,
 				668DCD0B2A42798E00FF8F3C /* AddPostView.swift in Sources */,
 				668DCCE92A3FDA6900FF8F3C /* LogInViewController.swift in Sources */,
 				668DCCED2A3FDAB500FF8F3C /* SignUpView.swift in Sources */,
-				668DCD052A416B9D00FF8F3C /* TripsTableViewManager.swift in Sources */,
 				A770F11E2A2FE51900D7547B /* SceneDelegate.swift in Sources */,
 				668DCCF12A3FDB0000FF8F3C /* ProfileSettingView.swift in Sources */,
-				668DCCFF2A41645900FF8F3C /* UserHomePageViewController.swift in Sources */,
 				668DCD092A42793F00FF8F3C /* AddPostViewController.swift in Sources */,
 				668DCD032A41689B00FF8F3C /* TripsTableViewCell.swift in Sources */,
 				B3292FE32A437471009EAE23 /* ProgressSpinnerViewController.swift in Sources */,
 				B3292FE72A4374C1009EAE23 /* LoginProgressIndicatorManager.swift in Sources */,
 				668DCCF62A401C4700FF8F3C /* AddTripViewController.swift in Sources */,
 				668DCCF32A3FDB2400FF8F3C /* ProfileSettingViewController.swift in Sources */,
+				F42D570C2A4561E8009CB0D7 /* TripsTableViewController.swift in Sources */,
 				668DCCE32A3FD9D700FF8F3C /* MainScreenView.swift in Sources */,
 				668DCCE72A3FDA3D00FF8F3C /* SignUpViewController.swift in Sources */,
 				B3292FE52A437491009EAE23 /* ProgressSpinnerDelegate.swift in Sources */,

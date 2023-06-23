@@ -59,7 +59,7 @@ class SignUpView: UIView {
     func setUpSloganTitle(){
         sloganTitle = UILabel()
         sloganTitle.textColor = .white
-        sloganTitle.text = "Here for all of yours Social Travel Need!"
+        sloganTitle.text = "Here for all of your Social Travel Needs!"
         sloganTitle.font = UIFont.systemFont(ofSize: 18)
         sloganTitle.textAlignment = .center
         sloganTitle.translatesAutoresizingMaskIntoConstraints = false
