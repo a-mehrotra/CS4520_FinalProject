@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct tripInfo{
+struct tripInfo: Codable{
     var countryCity: String
     var date: String
     var tripDes: String

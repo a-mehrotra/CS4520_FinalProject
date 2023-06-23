@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class ViewController: UIViewController {
     
@@ -17,6 +18,8 @@ class ViewController: UIViewController {
     var currentUser:FirebaseAuth.User?
     
     var tripsArray = [tripInfo]()
+    
+    let database = Firestore.firestore()
     
     override func loadView() {
         view = mainScreen
@@ -34,13 +37,7 @@ class ViewController: UIViewController {
             }else{
                 //MARK: the user is signed in...
                 self.currentUser = user
-                let tripExample1 = tripInfo(countryCity: "US", date: "05/22/2002", tripDes: "This is my 1st trip!")
-                let tripExample2 = tripInfo(countryCity: "Vietnam", date: "05/22/2002", tripDes: "This is my 2nd trip!")
-                let tripExample3 = tripInfo(countryCity: "Mexico", date: "05/22/2002", tripDes: "This is my 3rd trip!")
                 
-                self.tripsArray.append(tripExample1)
-                self.tripsArray.append(tripExample2)
-                self.tripsArray.append(tripExample3)
                 self.loggedInContentShow(true)
             }
         }
@@ -116,7 +113,7 @@ class ViewController: UIViewController {
     func loggedInContentShow(_ value: Bool) {
         mainScreen.tripTitle.isHidden = !value
         self.mainScreen.tableViewTrips.isHidden = !value
-        self.mainScreen.tableViewTrips.reloadData()
+        self.updateTrips()
         
         navigationItem.rightBarButtonItem?.isHidden = !value
         navigationItem.leftBarButtonItem?.isHidden = !value
@@ -129,4 +126,37 @@ class ViewController: UIViewController {
         mainScreen.loginButton.isHidden = value
         mainScreen.signupButton.isHidden = value
     }
+    
+    
+    func updateTrips() {
+        self.tripsArray.removeAll()
+        self.tripsArray = getTripsOfCurrentUser()
+        self.mainScreen.tableViewTrips.reloadData()
+    }
+    
+    func getTripsOfCurrentUser() -> [tripInfo] {
+            var userRef: DocumentReference!
+            var listOfTrips = [tripInfo]()
+            userRef = self.database.collection("users").document((currentUser?.uid)!)
+             
+            self.database.collection("trips").whereField("userArray", arrayContains: userRef!).addSnapshotListener(includeMetadataChanges: false, listener: {querySnapshot, error in
+                
+                if let documents = querySnapshot?.documents {
+                    self.tripsArray.removeAll()
+                    for document in documents {
+                        do {
+                            let trip = try document.data(as: tripInfo.self)
+                            listOfTrips.append(trip)
+                        }
+                        catch {
+                            print(error)
+                        }
+                    }
+                }
+                
+                
+            
+            })
+            return listOfTrips
+        }
 }
