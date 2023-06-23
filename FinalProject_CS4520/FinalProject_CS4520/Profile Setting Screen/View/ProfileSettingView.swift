@@ -89,7 +89,7 @@ class ProfileSettingView: UIView {
 
     func setUpSubmitButton(){
         signOutButton = UIButton(type: .system)
-        signOutButton.setTitle("SignOut", for: .normal)
+        signOutButton.setTitle("Log Out", for: .normal)
         signOutButton.layer.cornerRadius = 15.0
         signOutButton.backgroundColor = UIColor(red: 54, green: 10, blue: 138)
         signOutButton.setTitleColor(.white, for: .normal)

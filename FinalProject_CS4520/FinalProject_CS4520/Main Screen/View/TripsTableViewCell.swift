@@ -16,6 +16,8 @@ class TripsTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        let color = UIColor(red: 103, green: 71, blue: 200)
+        self.backgroundColor = color
         setupWrapperCellView()
         setupLabelCityCountryName()
         setupLabelTripDescription()

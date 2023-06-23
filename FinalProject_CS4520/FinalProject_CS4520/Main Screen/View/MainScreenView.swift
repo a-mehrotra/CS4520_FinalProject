@@ -19,6 +19,9 @@ class MainScreenView: UIView {
     
     var logoImage: UIImage!
     
+    var tripTitle: UILabel!
+    var tableViewTrips: UITableView!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         let color = UIColor(red: 103, green: 71, blue: 200)
@@ -29,6 +32,9 @@ class MainScreenView: UIView {
         setUpWelcomeTitle()
         setUpLoginButton()
         setUpSignUpButton()
+        
+        setUpTripLabel()
+        setUpTableViewTrips()
         
         initConstraints()
     }
@@ -48,10 +54,34 @@ class MainScreenView: UIView {
         self.addSubview(appTitle)
     }
     
+    func setUpTripLabel(){
+        tripTitle = UILabel()
+        tripTitle.text = "My Trips"
+        tripTitle.textColor = .white
+        tripTitle.font = .boldSystemFont(ofSize: 38)
+        tripTitle.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(tripTitle)
+    }
+    
+    func setUpTableViewTrips() {
+        tableViewTrips = UITableView(frame: .zero, style: .plain)
+        tableViewTrips.register(TripsTableViewCell.self, forCellReuseIdentifier: "tableViewTrips")
+        let color = UIColor(red: 103, green: 71, blue: 200)
+        tableViewTrips.backgroundColor = color // Set the background color of the table view to clear
+        tableViewTrips.separatorColor = color
+        tableViewTrips.tableFooterView = UIView()
+        tableViewTrips.superview?.backgroundColor = UIColor(red: 103/255, green: 71/255, blue: 200/255, alpha: 1.0)
+        tableViewTrips.backgroundView = UIView()
+        tableViewTrips.backgroundView?.backgroundColor = UIColor(red: 103/255, green: 71/255, blue: 200/255, alpha: 1.0)
+        tableViewTrips.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(tableViewTrips)
+    }
+
+    
     func setUpSloganTitle(){
         sloganTitle = UILabel()
         sloganTitle.textColor = .white
-        sloganTitle.text = "Here for all of yours Social Travel Need!"
+        sloganTitle.text = "Here for all of your Social Travel Needs!"
         sloganTitle.font = UIFont.systemFont(ofSize: 18)
         sloganTitle.textAlignment = .center
         sloganTitle.translatesAutoresizingMaskIntoConstraints = false
@@ -104,6 +134,14 @@ class MainScreenView: UIView {
     
     func initConstraints(){
         NSLayoutConstraint.activate([
+            tripTitle.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 10),
+            tripTitle.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 22),
+            
+            tableViewTrips.topAnchor.constraint(equalTo: tripTitle.bottomAnchor, constant: 20),
+            tableViewTrips.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -8),
+            tableViewTrips.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            tableViewTrips.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            
             appTitle.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor , constant: 25),
             appTitle.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             
@@ -120,10 +158,7 @@ class MainScreenView: UIView {
             welcomeTitle.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             
             signupButton.topAnchor.constraint(equalTo: welcomeTitle.bottomAnchor , constant: 20),
-            signupButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            
-            
-            
+            signupButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor)
         ])
     }
     
