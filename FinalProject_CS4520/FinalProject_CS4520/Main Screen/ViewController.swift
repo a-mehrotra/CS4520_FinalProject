@@ -17,9 +17,10 @@ class ViewController: UIViewController {
     var handleAuth: AuthStateDidChangeListenerHandle?
     var currentUser:FirebaseAuth.User?
     
-    var tripsArray = [tripInfo]()
+    var tripsArray = [Trip]()
     
     let database = Firestore.firestore()
+    let notificationCenter = NotificationCenter.default
     
     override func loadView() {
         view = mainScreen
@@ -27,7 +28,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        print("in view will appear")
         //MARK: handling if the Authentication state is changed (sign in, sign out, register)...
         handleAuth = Auth.auth().addStateDidChangeListener{ auth, user in
             if user == nil{
@@ -42,7 +43,7 @@ class ViewController: UIViewController {
             }
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -56,8 +57,12 @@ class ViewController: UIViewController {
         
         //MARK: removing the separator line...
         mainScreen.tableViewTrips.separatorStyle = .none
+        
+        notificationCenter.addObserver(self, selector: #selector(tripAdded), name: .tripAdded, object: nil)
     }
-    
+    @objc func tripAdded() {
+        self.updateTrips()
+    }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         Auth.auth().removeStateDidChangeListener(handleAuth!)
@@ -67,8 +72,8 @@ class ViewController: UIViewController {
         let signUpViewController = SignUpViewController()
         navigationController?.pushViewController(signUpViewController, animated: true)
         
-//        var profileSettingViewController = ProfileSettingViewController()
-//        navigationController?.pushViewController(profileSettingViewController, animated: true)
+        //        var profileSettingViewController = ProfileSettingViewController()
+        //        navigationController?.pushViewController(profileSettingViewController, animated: true)
         
         
     }
@@ -105,39 +110,40 @@ class ViewController: UIViewController {
         navigationController?.pushViewController(profileSettingViewController, animated: true)
     }
     
-//    @objc func addNewPostButtonTapped(){
-//        let addPostViewController = AddPostViewController()
-//        navigationController?.pushViewController(addPostViewController, animated: true)
-//    }
+    //    @objc func addNewPostButtonTapped(){
+    //        let addPostViewController = AddPostViewController()
+    //        navigationController?.pushViewController(addPostViewController, animated: true)
+    //    }
     
     
     @objc func addNewTripButtonTapped(){
-           let addTripOptionAlert = UIAlertController(
-               title: "Add Trip",
-               message: "Please select",
-               preferredStyle: .alert)
-           
-           //MARK: Sign In Action...
-           let addNewTripAction = UIAlertAction(title: "Add New Trip", style: .default, handler: {(_) in
-               var addTripViewController = AddTripViewController()
-               self.navigationController?.pushViewController(addTripViewController, animated: true)
-               })
-           
-           let addExistingTripAction = UIAlertAction(title: "Add Existing Trip", style: .default, handler: {(_) in
-               //MARK: logic to open the register screen...
-               let existingTripViewController = ExistingTripViewController()
-                              
-               self.navigationController?.pushViewController(existingTripViewController, animated: true)
-           })
-           
-           //MARK: action buttons...
-           addTripOptionAlert.addAction(addNewTripAction)
-           addTripOptionAlert.addAction(addExistingTripAction)
-           
-           self.present(addTripOptionAlert, animated: true)
+        let addTripOptionAlert = UIAlertController(
+            title: "Add Trip",
+            message: "Please select",
+            preferredStyle: .alert)
         
-         
-       }
+        //MARK: Sign In Action...
+        let addNewTripAction = UIAlertAction(title: "Add New Trip", style: .default, handler: {(_) in
+            var addTripViewController = AddTripViewController()
+            addTripViewController.currentUser = self.currentUser
+            self.navigationController?.pushViewController(addTripViewController, animated: true)
+        })
+        
+        let addExistingTripAction = UIAlertAction(title: "Add Existing Trip", style: .default, handler: {(_) in
+            //MARK: logic to open the register screen...
+            let existingTripViewController = ExistingTripViewController()
+            
+            self.navigationController?.pushViewController(existingTripViewController, animated: true)
+        })
+        
+        //MARK: action buttons...
+        addTripOptionAlert.addAction(addNewTripAction)
+        addTripOptionAlert.addAction(addExistingTripAction)
+        
+        self.present(addTripOptionAlert, animated: true)
+        
+        
+    }
     
     func loggedInContentShow(_ value: Bool) {
         mainScreen.tripTitle.isHidden = !value
@@ -164,35 +170,45 @@ class ViewController: UIViewController {
     
     func updateTrips() {
         self.tripsArray.removeAll()
-        self.tripsArray = getTripsOfCurrentUser()
-        self.mainScreen.tableViewTrips.reloadData()
-    }
-    
-    func getTripsOfCurrentUser() -> [tripInfo] {
-            var userRef: DocumentReference!
-            var listOfTrips = [tripInfo]()
-            userRef = self.database.collection("users").document((currentUser?.uid)!)
-             
-            self.database.collection("trips").whereField("userArray", arrayContains: userRef!).addSnapshotListener(includeMetadataChanges: false, listener: {querySnapshot, error in
-                
-                if let documents = querySnapshot?.documents {
-                    self.tripsArray.removeAll()
-                    for document in documents {
-                        do {
-                            let trip = try document.data(as: tripInfo.self)
-                            listOfTrips.append(trip)
-                        }
-                        catch {
-                            print(error)
-                        }
+        
+        print("hello")
+        print("test")
+        print((currentUser?.uid)!)
+        
+        self.database.collection("trips").whereField("userArray", arrayContains: (currentUser?.uid)!).getDocuments(completion: {(querySnapshot, error) in
+            if let documents = querySnapshot?.documents {
+                self.tripsArray.removeAll()
+                for document in documents {
+                    do {
+                        let trip = try document.data(as: Trip.self)
+                        self.tripsArray.append(trip)
+                    }
+                    catch {
+                        print(error)
                     }
                 }
-                
-                
+                self.mainScreen.tableViewTrips.reloadData()
+            }
             
-            })
-            return listOfTrips
-        }
+            
+            
+        })
+        
+        
+    }
+    
+  
+    
+    
+    
+    func showErrorAlert(_ text: String){
+        let alert = UIAlertController(title: "Error!", message: text, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        
+        self.present(alert, animated: true)
+    }
+    
     
     
 }
