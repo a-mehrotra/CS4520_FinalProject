@@ -39,6 +39,8 @@
 		B39142FF2A4754760002F519 /* ExistingTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39142FE2A4754760002F519 /* ExistingTripViewController.swift */; };
 		B39143022A4754C90002F519 /* ExistingTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39143012A4754C90002F519 /* ExistingTripView.swift */; };
 		B39143042A4754E90002F519 /* ExistingTripsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39143032A4754E90002F519 /* ExistingTripsTableViewCell.swift */; };
+		B39143062A477DA90002F519 /* AddTripProgressManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39143052A477DA90002F519 /* AddTripProgressManager.swift */; };
+		B39143082A4781E90002F519 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39143072A4781E90002F519 /* NotificationNames.swift */; };
 		F42D570C2A4561E8009CB0D7 /* TripsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42D570B2A4561E8009CB0D7 /* TripsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +75,8 @@
 		B39142FE2A4754760002F519 /* ExistingTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistingTripViewController.swift; sourceTree = "<group>"; };
 		B39143012A4754C90002F519 /* ExistingTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistingTripView.swift; sourceTree = "<group>"; };
 		B39143032A4754E90002F519 /* ExistingTripsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistingTripsTableViewCell.swift; sourceTree = "<group>"; };
+		B39143052A477DA90002F519 /* AddTripProgressManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripProgressManager.swift; sourceTree = "<group>"; };
+		B39143072A4781E90002F519 /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
 		F42D570B2A4561E8009CB0D7 /* TripsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,6 +149,7 @@
 			children = (
 				668DCCFA2A401C7800FF8F3C /* View */,
 				668DCCF52A401C4700FF8F3C /* AddTripViewController.swift */,
+				B39143052A477DA90002F519 /* AddTripProgressManager.swift */,
 			);
 			path = "Add Trip Screen";
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 				A770F1262A2FE51A00D7547B /* LaunchScreen.storyboard */,
 				A770F1292A2FE51B00D7547B /* Info.plist */,
 				A76231862A3E578D00F0C75F /* GoogleService-Info.plist */,
+				B39143072A4781E90002F519 /* NotificationNames.swift */,
 			);
 			path = FinalProject_CS4520;
 			sourceTree = "<group>";
@@ -342,6 +348,7 @@
 				A770F11E2A2FE51900D7547B /* SceneDelegate.swift in Sources */,
 				668DCCF12A3FDB0000FF8F3C /* ProfileSettingView.swift in Sources */,
 				668DCD092A42793F00FF8F3C /* AddPostViewController.swift in Sources */,
+				B39143082A4781E90002F519 /* NotificationNames.swift in Sources */,
 				668DCD032A41689B00FF8F3C /* TripsTableViewCell.swift in Sources */,
 				B3292FE32A437471009EAE23 /* ProgressSpinnerViewController.swift in Sources */,
 				B39143022A4754C90002F519 /* ExistingTripView.swift in Sources */,
@@ -354,6 +361,7 @@
 				B3292FE52A437491009EAE23 /* ProgressSpinnerDelegate.swift in Sources */,
 				668DCD072A416CEA00FF8F3C /* Trip.swift in Sources */,
 				668DCCF82A401C5D00FF8F3C /* AddTripView.swift in Sources */,
+				B39143062A477DA90002F519 /* AddTripProgressManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
