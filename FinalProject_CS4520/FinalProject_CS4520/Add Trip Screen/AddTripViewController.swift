@@ -8,22 +8,63 @@
 import UIKit
 
 class AddTripViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    let addTripView = AddTripView()
+    var datePickerArrival: UIDatePicker!
+    var datePickerDeparture: UIDatePicker!
+    
+    override func loadView() {
+        view = addTripView
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        showDatePickerArrival()
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboardOnTap))
+        view.addGestureRecognizer(tapRecognizer)
     }
-    */
-
+    
+    @objc func hideKeyboardOnTap(){
+        //MARK: removing the keyboard from screen...
+        view.endEditing(true)
+    }
+    
+    func showDatePickerArrival() {
+        let loc = Locale(identifier: "us")
+        
+        
+        datePickerArrival = UIDatePicker()
+        datePickerArrival.locale = loc
+        datePickerArrival.datePickerMode = .date
+        datePickerArrival?.preferredDatePickerStyle = .inline
+        datePickerArrival?.addTarget(self, action: #selector(dateChangeArrival(datePicker:)), for: .valueChanged)
+        datePickerArrival.maximumDate = Date()
+        
+        datePickerDeparture = UIDatePicker()
+        datePickerDeparture.locale = loc
+        datePickerDeparture.datePickerMode = .date
+        datePickerDeparture?.preferredDatePickerStyle = .inline
+        datePickerDeparture?.addTarget(self, action: #selector(dateChangeDeparture(datePicker:)), for: .valueChanged)
+        datePickerDeparture.maximumDate = Date()
+        
+        addTripView.arrivalDateTextField.inputView = datePickerArrival
+        addTripView.departureDateTextField.inputView = datePickerDeparture
+        addTripView.arrivalDateTextField.text = formatDate(date: Date())
+        addTripView.departureDateTextField.text = formatDate(date: Date())
+    }
+    
+    @objc func dateChangeArrival(datePicker: UIDatePicker){
+        addTripView.arrivalDateTextField.text = formatDate(date: datePicker.date)
+    }
+    
+    @objc func dateChangeDeparture(datePicker: UIDatePicker){
+        addTripView.departureDateTextField.text = formatDate(date: datePicker.date)
+    }
+    
+    func formatDate(date: Date) -> String{
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_us")
+        formatter.dateFormat = "MMMM dd yyyy"
+        return formatter.string(from: date)
+    }
 }

@@ -91,7 +91,7 @@ class ViewController: UIViewController {
             image: UIImage(systemName: "plus.app.fill"),
             style: .plain,
             target: self,
-            action: #selector(addNewPostButtonTapped)
+            action: #selector(addNewTripButtonTapped)
         )
         
         navigationItem.rightBarButtonItems = [barIcon]
@@ -105,15 +105,48 @@ class ViewController: UIViewController {
         navigationController?.pushViewController(profileSettingViewController, animated: true)
     }
     
-    @objc func addNewPostButtonTapped(){
-        let addPostViewController = AddPostViewController()
-        navigationController?.pushViewController(addPostViewController, animated: true)
-    }
+//    @objc func addNewPostButtonTapped(){
+//        let addPostViewController = AddPostViewController()
+//        navigationController?.pushViewController(addPostViewController, animated: true)
+//    }
+    
+    
+    @objc func addNewTripButtonTapped(){
+           let addTripOptionAlert = UIAlertController(
+               title: "Add Trip",
+               message: "Please select",
+               preferredStyle: .alert)
+           
+           //MARK: Sign In Action...
+           let addNewTripAction = UIAlertAction(title: "Add New Trip", style: .default, handler: {(_) in
+               var addTripViewController = AddTripViewController()
+               self.navigationController?.pushViewController(addTripViewController, animated: true)
+               })
+           
+           let addExistingTripAction = UIAlertAction(title: "Add Existing Trip", style: .default, handler: {(_) in
+               //MARK: logic to open the register screen...
+               let existingTripViewController = ExistingTripViewController()
+                              
+               self.navigationController?.pushViewController(existingTripViewController, animated: true)
+           })
+           
+           //MARK: action buttons...
+           addTripOptionAlert.addAction(addNewTripAction)
+           addTripOptionAlert.addAction(addExistingTripAction)
+           
+           self.present(addTripOptionAlert, animated: true)
+        
+         
+       }
     
     func loggedInContentShow(_ value: Bool) {
         mainScreen.tripTitle.isHidden = !value
         self.mainScreen.tableViewTrips.isHidden = !value
-        self.updateTrips()
+        
+        if value {
+            self.updateTrips()
+        }
+        
         
         navigationItem.rightBarButtonItem?.isHidden = !value
         navigationItem.leftBarButtonItem?.isHidden = !value
@@ -126,6 +159,7 @@ class ViewController: UIViewController {
         mainScreen.loginButton.isHidden = value
         mainScreen.signupButton.isHidden = value
     }
+    
     
     
     func updateTrips() {
@@ -159,4 +193,6 @@ class ViewController: UIViewController {
             })
             return listOfTrips
         }
+    
+    
 }
