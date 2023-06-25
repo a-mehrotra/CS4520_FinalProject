@@ -29,6 +29,9 @@ class AddTripViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Add Trip"
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = titleTextAttributes
         showDatePickerArrival()
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboardOnTap))
         view.addGestureRecognizer(tapRecognizer)

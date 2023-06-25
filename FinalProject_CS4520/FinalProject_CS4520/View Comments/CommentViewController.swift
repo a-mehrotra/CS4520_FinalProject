@@ -55,7 +55,7 @@ class CommentViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Timeline"
+        title = "Comments"
         let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = titleTextAttributes
         
