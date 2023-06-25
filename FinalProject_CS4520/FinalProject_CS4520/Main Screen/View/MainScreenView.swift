@@ -9,6 +9,9 @@ import UIKit
 
 class MainScreenView: UIView {
     
+    var scrollView: UIScrollView!
+    var contentView: UIView!
+    
     var appTitle: UILabel!
     var sloganTitle: UILabel!
     var welcomeBackTitle: UILabel!
@@ -27,6 +30,8 @@ class MainScreenView: UIView {
         super.init(frame: frame)
         let color = UIColor(red: 103, green: 71, blue: 200)
         self.backgroundColor = color
+        setupScrollView()
+        setupContentView()
         setUpAppTitle()
         setUpSloganTitle()
         setUpWelcomeBackTitle()
@@ -40,8 +45,31 @@ class MainScreenView: UIView {
         initConstraints()
     }
     
-    func setUpLogoImage(){
+    func setupScrollView() {
+        scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(scrollView)
         
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+    
+    func setupContentView() {
+        contentView = UIView()
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(contentView)
+        
+        NSLayoutConstraint.activate([
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+        ])
     }
     
     
@@ -52,7 +80,7 @@ class MainScreenView: UIView {
         appTitle.font = UIFont.boldSystemFont(ofSize: 44)
         appTitle.textAlignment = .center
         appTitle.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(appTitle)
+        contentView.addSubview(appTitle)
     }
     
     func setUpTripLabel(){
@@ -86,7 +114,7 @@ class MainScreenView: UIView {
         sloganTitle.font = UIFont.systemFont(ofSize: 18)
         sloganTitle.textAlignment = .center
         sloganTitle.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(sloganTitle)
+        contentView.addSubview(sloganTitle)
     }
     
     func setUpWelcomeBackTitle(){
@@ -96,7 +124,7 @@ class MainScreenView: UIView {
         welcomeBackTitle.font = UIFont.systemFont(ofSize: 18)
         welcomeBackTitle.textAlignment = .center
         welcomeBackTitle.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(welcomeBackTitle)
+        contentView.addSubview(welcomeBackTitle)
     }
     
     func setUpWelcomeTitle(){
@@ -106,7 +134,7 @@ class MainScreenView: UIView {
         welcomeTitle.font = UIFont.systemFont(ofSize: 18)
         welcomeTitle.textAlignment = .center
         welcomeTitle.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(welcomeTitle)
+        contentView.addSubview(welcomeTitle)
     }
     
     func setUpLoginButton(){
@@ -118,7 +146,7 @@ class MainScreenView: UIView {
         loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         loginButton.contentEdgeInsets =  UIEdgeInsets(top: 12, left: 126, bottom: 12, right: 126)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(loginButton)
+        contentView.addSubview(loginButton)
     }
     
     func setUpSignUpButton(){
@@ -130,7 +158,7 @@ class MainScreenView: UIView {
         signupButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         signupButton.contentEdgeInsets =  UIEdgeInsets(top: 12, left: 120, bottom: 12, right: 120)
         signupButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(signupButton)
+        contentView.addSubview(signupButton)
     }
     
     func setupSchengenButton() {
@@ -147,8 +175,8 @@ class MainScreenView: UIView {
     
     func initConstraints(){
         NSLayoutConstraint.activate([
-            tripTitle.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 10),
-            tripTitle.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 22),
+            tripTitle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            tripTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 22),
             
             schengenButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -12),
             schengenButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
@@ -158,23 +186,24 @@ class MainScreenView: UIView {
             tableViewTrips.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 10),
             tableViewTrips.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -10),
             
-            appTitle.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor , constant: 25),
-            appTitle.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            appTitle.topAnchor.constraint(equalTo: contentView.topAnchor , constant: 25),
+            appTitle.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
             sloganTitle.topAnchor.constraint(equalTo: appTitle.bottomAnchor , constant: 40),
-            sloganTitle.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            sloganTitle.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
             welcomeBackTitle.topAnchor.constraint(equalTo: sloganTitle.bottomAnchor , constant: 120),
-            welcomeBackTitle.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            welcomeBackTitle.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
             loginButton.topAnchor.constraint(equalTo: welcomeBackTitle.bottomAnchor , constant: 20),
-            loginButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            loginButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
             welcomeTitle.topAnchor.constraint(equalTo: loginButton.bottomAnchor , constant: 40),
-            welcomeTitle.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            welcomeTitle.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
             signupButton.topAnchor.constraint(equalTo: welcomeTitle.bottomAnchor , constant: 20),
-            signupButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor)
+            signupButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            signupButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
         ])
     }
     
