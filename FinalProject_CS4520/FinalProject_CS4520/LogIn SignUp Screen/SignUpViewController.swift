@@ -159,7 +159,7 @@ class SignUpViewController: UIViewController {
             .collection("users")
         
         do{
-            collectionUsers.document(id).setData(["email": email.lowercased(), "username": username, "dob": dob], completion: {(error) in
+            collectionUsers.document(id).setData(["email": email.lowercased(), "username": username, "dob": dob, "bio": ""], completion: {(error) in
                 if error == nil{
                     self.hideActivityIndicator()
                     self.navigationController?.popViewController(animated: true)

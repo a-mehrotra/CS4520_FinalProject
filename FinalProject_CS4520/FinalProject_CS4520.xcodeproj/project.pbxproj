@@ -41,6 +41,10 @@
 		B39143042A4754E90002F519 /* ExistingTripsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39143032A4754E90002F519 /* ExistingTripsTableViewCell.swift */; };
 		B39143062A477DA90002F519 /* AddTripProgressManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39143052A477DA90002F519 /* AddTripProgressManager.swift */; };
 		B39143082A4781E90002F519 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39143072A4781E90002F519 /* NotificationNames.swift */; };
+		B3D577E62A48AB8E00F3CA10 /* ProfileInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D577E52A48AB8E00F3CA10 /* ProfileInfoViewController.swift */; };
+		B3D577E82A48ABB100F3CA10 /* ProfileInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D577E72A48ABB100F3CA10 /* ProfileInfoView.swift */; };
+		B3D577EA2A48ACF900F3CA10 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D577E92A48ACF900F3CA10 /* Profile.swift */; };
+		B3D577EC2A48B60F00F3CA10 /* ImageViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D577EB2A48B60F00F3CA10 /* ImageViewUtils.swift */; };
 		F42D570C2A4561E8009CB0D7 /* TripsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42D570B2A4561E8009CB0D7 /* TripsTableViewController.swift */; };
 		F49894122A47F8BF00684264 /* AddCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49894112A47F8BF00684264 /* AddCommentView.swift */; };
 		F49894142A47F8F300684264 /* AddCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49894132A47F8F300684264 /* AddCommentViewController.swift */; };
@@ -88,6 +92,10 @@
 		B39143032A4754E90002F519 /* ExistingTripsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistingTripsTableViewCell.swift; sourceTree = "<group>"; };
 		B39143052A477DA90002F519 /* AddTripProgressManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripProgressManager.swift; sourceTree = "<group>"; };
 		B39143072A4781E90002F519 /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
+		B3D577E52A48AB8E00F3CA10 /* ProfileInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoViewController.swift; sourceTree = "<group>"; };
+		B3D577E72A48ABB100F3CA10 /* ProfileInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoView.swift; sourceTree = "<group>"; };
+		B3D577E92A48ACF900F3CA10 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		B3D577EB2A48B60F00F3CA10 /* ImageViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewUtils.swift; sourceTree = "<group>"; };
 		F42D570B2A4561E8009CB0D7 /* TripsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTableViewController.swift; sourceTree = "<group>"; };
 		F49894112A47F8BF00684264 /* AddCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentView.swift; sourceTree = "<group>"; };
 		F49894132A47F8F300684264 /* AddCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +170,7 @@
 			children = (
 				668DCCFB2A401DB100FF8F3C /* View */,
 				668DCCF22A3FDB2400FF8F3C /* ProfileSettingViewController.swift */,
+				B3D577E52A48AB8E00F3CA10 /* ProfileInfoViewController.swift */,
 			);
 			path = "Profile Setting Screen";
 			sourceTree = "<group>";
@@ -188,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				668DCCF02A3FDB0000FF8F3C /* ProfileSettingView.swift */,
+				B3D577E72A48ABB100F3CA10 /* ProfileInfoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -247,6 +257,7 @@
 				A770F1292A2FE51B00D7547B /* Info.plist */,
 				A76231862A3E578D00F0C75F /* GoogleService-Info.plist */,
 				B39143072A4781E90002F519 /* NotificationNames.swift */,
+				B3D577EB2A48B60F00F3CA10 /* ImageViewUtils.swift */,
 			);
 			path = FinalProject_CS4520;
 			sourceTree = "<group>";
@@ -301,6 +312,7 @@
 			children = (
 				668DCD062A416CEA00FF8F3C /* Trip.swift */,
 				F49894162A47F92500684264 /* Post.swift */,
+				B3D577E92A48ACF900F3CA10 /* Profile.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -440,6 +452,7 @@
 				668DCCED2A3FDAB500FF8F3C /* SignUpView.swift in Sources */,
 				B39142FF2A4754760002F519 /* ExistingTripViewController.swift in Sources */,
 				F498941D2A47F98100684264 /* TimelineViewController.swift in Sources */,
+				B3D577EC2A48B60F00F3CA10 /* ImageViewUtils.swift in Sources */,
 				A770F11E2A2FE51900D7547B /* SceneDelegate.swift in Sources */,
 				F49894212A47F9BE00684264 /* TimelineView.swift in Sources */,
 				668DCCF12A3FDB0000FF8F3C /* ProfileSettingView.swift in Sources */,
@@ -448,6 +461,8 @@
 				668DCD032A41689B00FF8F3C /* TripsTableViewCell.swift in Sources */,
 				B3292FE32A437471009EAE23 /* ProgressSpinnerViewController.swift in Sources */,
 				F49894272A485DA800684264 /* CommentVIew.swift in Sources */,
+				B3D577E82A48ABB100F3CA10 /* ProfileInfoView.swift in Sources */,
+				B3D577EA2A48ACF900F3CA10 /* Profile.swift in Sources */,
 				B39143022A4754C90002F519 /* ExistingTripView.swift in Sources */,
 				B3292FE72A4374C1009EAE23 /* LoginProgressIndicatorManager.swift in Sources */,
 				668DCCF62A401C4700FF8F3C /* AddTripViewController.swift in Sources */,
@@ -460,6 +475,7 @@
 				F49894292A485DB500684264 /* CommentTableViewCell.swift in Sources */,
 				F498941B2A47F96A00684264 /* TimelineTableViewController.swift in Sources */,
 				668DCD072A416CEA00FF8F3C /* Trip.swift in Sources */,
+				B3D577E62A48AB8E00F3CA10 /* ProfileInfoViewController.swift in Sources */,
 				668DCCF82A401C5D00FF8F3C /* AddTripView.swift in Sources */,
 				B39143062A477DA90002F519 /* AddTripProgressManager.swift in Sources */,
 			);

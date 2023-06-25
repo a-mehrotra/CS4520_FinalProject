@@ -123,8 +123,9 @@ class ViewController: UIViewController {
     
     
     @objc func profileBarButtonTapped(){
-        let profileSettingViewController = ProfileSettingViewController()
-        navigationController?.pushViewController(profileSettingViewController, animated: true)
+        let profileInfoViewController = ProfileInfoViewController()
+        profileInfoViewController.currentUser = self.currentUser
+        navigationController?.pushViewController(profileInfoViewController, animated: true)
     }
     
     

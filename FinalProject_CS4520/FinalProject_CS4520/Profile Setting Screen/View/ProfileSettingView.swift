@@ -8,34 +8,42 @@
 import UIKit
 
 class ProfileSettingView: UIView {
-    var imageProfileButton: UIImageView!
-    
+
+    var buttonImage: UIButton!
     var userNameTextField: UITextField!
-    var emailTextField: UITextField!
     var dateOfBirthTextField: UITextField!
     var bioTextField: UITextField!
 
-    var signOutButton: UIButton!
+    var saveButton: UIButton!
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        let color2 = UIColor(red: 103, green: 71, blue: 200)
-        self.backgroundColor = color2
+        let color = UIColor(red: 103, green: 71, blue: 200)
+        self.backgroundColor = color
+        setupbuttonTakePhoto()
         setupTextFieldUserName()
-        setupTextFieldEmail()
         setupTextFieldDateOfBirth()
         setupTextFieldBio()
-        setUpSubmitButton()
+        setUpSaveButton()
         
         initConstraints()
     }
     
-    func setUpLogoImage(){
-        
+    func setupbuttonTakePhoto(){
+        buttonImage = UIButton(type: .system)
+        buttonImage.setTitle("", for: .normal)
+        buttonImage.setImage(UIImage(systemName: "person"), for: .normal)
+        buttonImage.contentHorizontalAlignment = .fill
+        buttonImage.contentVerticalAlignment = .fill
+        buttonImage.imageView?.contentMode = .scaleAspectFit
+        buttonImage.showsMenuAsPrimaryAction = true
+        buttonImage.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(buttonImage)
     }
     
-    func setupTextFieldUserName(){ 
+    
+    func setupTextFieldUserName(){
         userNameTextField = UITextField()
         userNameTextField.placeholder = "Username"
         userNameTextField.leftViewMode = .always
@@ -46,19 +54,6 @@ class ProfileSettingView: UIView {
         userNameTextField.layer.borderColor = UIColor.white.cgColor
         userNameTextField.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(userNameTextField)
-    }
-    
-    func setupTextFieldEmail(){
-        emailTextField = UITextField()
-        emailTextField.placeholder = "Email"
-        emailTextField.leftViewMode = .always
-        emailTextField.leftView = UIView(frame: CGRect(x:0,y:0,width:5,height:0))
-        emailTextField.layer.cornerRadius = 15.0
-//        userNameTextField.layer.borderWidth = 2.0
-        emailTextField.backgroundColor = .white
-        emailTextField.layer.borderColor = UIColor.white.cgColor
-        emailTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(emailTextField)
     }
     
     func setupTextFieldDateOfBirth(){
@@ -87,31 +82,31 @@ class ProfileSettingView: UIView {
         self.addSubview(bioTextField)
     }
 
-    func setUpSubmitButton(){
-        signOutButton = UIButton(type: .system)
-        signOutButton.setTitle("Log Out", for: .normal)
-        signOutButton.layer.cornerRadius = 15.0
-        signOutButton.backgroundColor = UIColor(red: 54, green: 10, blue: 138)
-        signOutButton.setTitleColor(.white, for: .normal)
-        signOutButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
-        signOutButton.contentEdgeInsets =  UIEdgeInsets(top: 8, left: 30, bottom: 8, right: 30)
-        signOutButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(signOutButton)
+    func setUpSaveButton(){
+        saveButton = UIButton(type: .system)
+        saveButton.setTitle("Save", for: .normal)
+        saveButton.layer.cornerRadius = 15.0
+        saveButton.backgroundColor = UIColor(red: 54, green: 10, blue: 138)
+        saveButton.setTitleColor(.white, for: .normal)
+        saveButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        saveButton.contentEdgeInsets =  UIEdgeInsets(top: 8, left: 30, bottom: 8, right: 30)
+        saveButton.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(saveButton)
     }
 
     func initConstraints(){
         NSLayoutConstraint.activate([
-            userNameTextField.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor , constant: 22),
+            buttonImage.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 30),
+            buttonImage.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            buttonImage.widthAnchor.constraint(equalToConstant: 120),
+            buttonImage.heightAnchor.constraint(equalToConstant: 120),
+            
+            userNameTextField.topAnchor.constraint(equalTo: buttonImage.bottomAnchor , constant: 44),
             userNameTextField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 40),
             userNameTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -40),
             userNameTextField.heightAnchor.constraint(equalToConstant: 46),
             
-            emailTextField.topAnchor.constraint(equalTo: userNameTextField.bottomAnchor , constant: 44),
-            emailTextField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 40),
-            emailTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -40),
-            emailTextField.heightAnchor.constraint(equalToConstant: 46),
-            
-            dateOfBirthTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor , constant: 44),
+            dateOfBirthTextField.topAnchor.constraint(equalTo: userNameTextField.bottomAnchor , constant: 44),
             dateOfBirthTextField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 40),
             dateOfBirthTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -40),
             dateOfBirthTextField.heightAnchor.constraint(equalToConstant: 46),
@@ -120,10 +115,9 @@ class ProfileSettingView: UIView {
             bioTextField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 40),
             bioTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -40),
             bioTextField.heightAnchor.constraint(equalToConstant: 120),
-            bioTextField.heightAnchor.constraint(equalToConstant: 46),
-          
-            signOutButton.topAnchor.constraint(equalTo: bioTextField.bottomAnchor , constant: 50),
-            signOutButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            
+            saveButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor,constant: -20),
+            saveButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             
         ])
     }
@@ -134,3 +128,4 @@ class ProfileSettingView: UIView {
     }
 
 }
+
