@@ -121,13 +121,14 @@ class AddTripViewController: UIViewController {
         datePickerArrival.datePickerMode = .date
         datePickerArrival?.preferredDatePickerStyle = .inline
         datePickerArrival?.addTarget(self, action: #selector(dateChangeArrival(datePicker:)), for: .valueChanged)
-        datePickerArrival.maximumDate = Date()
+        datePickerArrival.minimumDate = Date()
         
         datePickerDeparture = UIDatePicker()
         datePickerDeparture.locale = loc
         datePickerDeparture.datePickerMode = .date
         datePickerDeparture?.preferredDatePickerStyle = .inline
         datePickerDeparture?.addTarget(self, action: #selector(dateChangeDeparture(datePicker:)), for: .valueChanged)
+        datePickerDeparture.minimumDate = datePickerArrival.date
         
         addTripView.arrivalDateTextField.inputView = datePickerArrival
         addTripView.departureDateTextField.inputView = datePickerDeparture
