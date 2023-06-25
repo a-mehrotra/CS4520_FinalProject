@@ -49,6 +49,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         mainScreen.signupButton.addTarget(self, action: #selector(onSignUpButtonTapped), for: .touchUpInside)
         mainScreen.loginButton.addTarget(self, action: #selector(onLogInButtonTapped), for: .touchUpInside)
+        mainScreen.schengenButton.addTarget(self, action: #selector(checkSchengenButtonTapped), for: .touchUpInside)
         
         setupRightBarButton()
         
@@ -128,6 +129,40 @@ class ViewController: UIViewController {
         navigationController?.pushViewController(profileInfoViewController, animated: true)
     }
     
+    @objc func checkSchengenButtonTapped() {
+        var daysRemaining = 90
+        var intervals = [DateInterval]()
+        var intervalsActual = [DateInterval]()
+        for trip in tripsArray {
+            if trip.isSchengen {
+                intervals.append(DateInterval(start: trip.arrivalDate.dateValue(), end: trip.departureDate.dateValue()))
+            }
+            
+        }
+        if let date = Calendar.current.date(byAdding: .day, value: -180, to: Date()) {
+            let windowInterval = DateInterval(start: date, end: Date())
+            for interval in intervals {
+                if interval.end >= date {
+                    if interval.intersects(windowInterval) {
+                        intervalsActual.append(interval.intersection(with: windowInterval)!)
+                    }
+                }
+            }
+        }
+        
+        for interval in intervalsActual {
+            let days = Calendar.current.dateComponents([.day], from: interval.start, to: interval.end)
+            daysRemaining = daysRemaining - days.day!
+        }
+        
+        let alert = UIAlertController(title: "Schengen Days", message: "You have \(daysRemaining) days left in the Schengen area", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        
+        self.present(alert, animated: true)
+        
+    }
+    
     
     @objc func addNewTripButtonTapped(){
         let addTripOptionAlert = UIAlertController(
@@ -148,17 +183,23 @@ class ViewController: UIViewController {
             existingTripViewController.currentUser = self.currentUser
             self.navigationController?.pushViewController(existingTripViewController, animated: true)
         })
+        let cancel = UIAlertAction(title: "Cancel", style: .default, handler: {(_) in
+            //MARK: logic to open the register screen...
+            self.dismiss(animated: true)
+        })
         
         //MARK: action buttons...
         addTripOptionAlert.addAction(addNewTripAction)
         addTripOptionAlert.addAction(addExistingTripAction)
+        addTripOptionAlert.addAction(cancel)
         
         self.present(addTripOptionAlert, animated: true)
     }
     
     func loggedInContentShow(_ value: Bool) {
         mainScreen.tripTitle.isHidden = !value
-        self.mainScreen.tableViewTrips.isHidden = !value
+        mainScreen.tableViewTrips.isHidden = !value
+        mainScreen.schengenButton.isHidden = !value
         
         if value {
             self.updateTrips()
@@ -171,6 +212,7 @@ class ViewController: UIViewController {
         mainScreen.sloganTitle.isHidden = value
         mainScreen.welcomeBackTitle.isHidden = value
         mainScreen.welcomeTitle.isHidden = value
+        
         
         mainScreen.loginButton.isHidden = value
         mainScreen.signupButton.isHidden = value

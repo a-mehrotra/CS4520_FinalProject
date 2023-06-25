@@ -20,6 +20,7 @@ class AddTripViewController: UIViewController {
     let childProgressView = ProgressSpinnerViewController()
     let database = Firestore.firestore()
     var currentUser:FirebaseAuth.User?
+    var checkSchengen = false
     let notificationCenter = NotificationCenter.default
     
     override func loadView() {
@@ -32,7 +33,7 @@ class AddTripViewController: UIViewController {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboardOnTap))
         view.addGestureRecognizer(tapRecognizer)
         addTripView.submitButton.addTarget(self, action: #selector(submitButtonPressed), for: .touchUpInside)
-        
+        addTripView.schengenBox.addTarget(self, action: #selector(canCheckSchengen), for: .touchUpInside)
         changeNavColorToWhite()
     }
     
@@ -48,6 +49,21 @@ class AddTripViewController: UIViewController {
 
     }
     
+    @objc func canCheckSchengen() {
+        checkSchengen = !checkSchengen
+        
+        if(checkSchengen) {
+            var checkbox = UIImage(systemName: "checkmark.square.fill")
+            checkbox = checkbox?.resized(to: CGSize(width: 20, height: 20))
+            self.addTripView.schengenBox.setImage(checkbox, for: .normal)
+            self.addTripView.visaLengthTextField.text = "90"
+        } else {
+            var checkbox = UIImage(systemName: "checkmark.square")
+            checkbox = checkbox?.resized(to: CGSize(width: 20, height: 20))
+            self.addTripView.schengenBox.setImage(checkbox, for: .normal)
+        }
+    }
+    
     @objc func hideKeyboardOnTap(){
         //MARK: removing the keyboard from screen...
         view.endEditing(true)
@@ -59,7 +75,7 @@ class AddTripViewController: UIViewController {
                 self.showActivityIndicator()
               
                 let dateFormatter = DateFormatter()
-                sendDataToFireBase(destination: destination, arrivalDate: dateArrival, departureDate: dateDeparture, createdBy: (currentUser?.email)!, userArray: [(currentUser?.uid)!], tripDescription: tripDescription, isSchengen: false, visaLength: visaLength)
+                sendDataToFireBase(destination: destination, arrivalDate: dateArrival, departureDate: dateDeparture, createdBy: (currentUser?.email)!, userArray: [(currentUser?.uid)!], tripDescription: tripDescription, isSchengen: checkSchengen, visaLength: visaLength)
             }
             else {
                 showErrorAlert("Fields must not be empty")

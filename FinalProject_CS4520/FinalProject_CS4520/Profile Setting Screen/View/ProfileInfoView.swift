@@ -48,7 +48,7 @@ class ProfileInfoView: UIView {
     func setupLabelUserName(){
         userNameLabel = UILabel()
         userNameLabel.font = UIFont.boldSystemFont(ofSize: 22)
-        userNameLabel.textColor = .black
+        userNameLabel.textColor = .white
         userNameLabel.textAlignment = .center
         userNameLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(userNameLabel)
@@ -58,7 +58,7 @@ class ProfileInfoView: UIView {
     func setupLabelDateOfBirth(){
         dateOfBirthLabel = UILabel()
         dateOfBirthLabel.font = UIFont.systemFont(ofSize: 14)
-        dateOfBirthLabel.textColor = .black
+        dateOfBirthLabel.textColor = .white
         dateOfBirthLabel.textAlignment = .center
         dateOfBirthLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(dateOfBirthLabel)
@@ -68,7 +68,7 @@ class ProfileInfoView: UIView {
         bioLabel = UILabel()
         bioLabel.text = "Bio"
         bioLabel.font = UIFont.boldSystemFont(ofSize: 26)
-        bioLabel.textColor = .black
+        bioLabel.textColor = .white
         bioLabel.textAlignment = .center
         bioLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(bioLabel)
@@ -78,7 +78,7 @@ class ProfileInfoView: UIView {
         bioInfoLabel = UILabel()
         bioInfoLabel.font = UIFont.systemFont(ofSize: 18)
         bioInfoLabel.numberOfLines = 0
-        bioInfoLabel.textColor = .black
+        bioInfoLabel.textColor = .white
         bioInfoLabel.textAlignment = .center
         bioInfoLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(bioInfoLabel)
