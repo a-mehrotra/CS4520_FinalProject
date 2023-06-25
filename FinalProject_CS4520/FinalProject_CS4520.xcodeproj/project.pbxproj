@@ -45,6 +45,7 @@
 		B3D577E82A48ABB100F3CA10 /* ProfileInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D577E72A48ABB100F3CA10 /* ProfileInfoView.swift */; };
 		B3D577EA2A48ACF900F3CA10 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D577E92A48ACF900F3CA10 /* Profile.swift */; };
 		B3D577EC2A48B60F00F3CA10 /* ImageViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D577EB2A48B60F00F3CA10 /* ImageViewUtils.swift */; };
+		B3D577EE2A48C1A900F3CA10 /* ProfileSettingsIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D577ED2A48C1A900F3CA10 /* ProfileSettingsIndicatorManager.swift */; };
 		F42D570C2A4561E8009CB0D7 /* TripsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42D570B2A4561E8009CB0D7 /* TripsTableViewController.swift */; };
 		F49894122A47F8BF00684264 /* AddCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49894112A47F8BF00684264 /* AddCommentView.swift */; };
 		F49894142A47F8F300684264 /* AddCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49894132A47F8F300684264 /* AddCommentViewController.swift */; };
@@ -96,6 +97,7 @@
 		B3D577E72A48ABB100F3CA10 /* ProfileInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoView.swift; sourceTree = "<group>"; };
 		B3D577E92A48ACF900F3CA10 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		B3D577EB2A48B60F00F3CA10 /* ImageViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewUtils.swift; sourceTree = "<group>"; };
+		B3D577ED2A48C1A900F3CA10 /* ProfileSettingsIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsIndicatorManager.swift; sourceTree = "<group>"; };
 		F42D570B2A4561E8009CB0D7 /* TripsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTableViewController.swift; sourceTree = "<group>"; };
 		F49894112A47F8BF00684264 /* AddCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentView.swift; sourceTree = "<group>"; };
 		F49894132A47F8F300684264 /* AddCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			children = (
 				668DCCFB2A401DB100FF8F3C /* View */,
 				668DCCF22A3FDB2400FF8F3C /* ProfileSettingViewController.swift */,
+				B3D577ED2A48C1A900F3CA10 /* ProfileSettingsIndicatorManager.swift */,
 				B3D577E52A48AB8E00F3CA10 /* ProfileInfoViewController.swift */,
 			);
 			path = "Profile Setting Screen";
@@ -455,6 +458,7 @@
 				B3D577EC2A48B60F00F3CA10 /* ImageViewUtils.swift in Sources */,
 				A770F11E2A2FE51900D7547B /* SceneDelegate.swift in Sources */,
 				F49894212A47F9BE00684264 /* TimelineView.swift in Sources */,
+				B3D577EE2A48C1A900F3CA10 /* ProfileSettingsIndicatorManager.swift in Sources */,
 				668DCCF12A3FDB0000FF8F3C /* ProfileSettingView.swift in Sources */,
 				668DCD092A42793F00FF8F3C /* AddPostViewController.swift in Sources */,
 				B39143082A4781E90002F519 /* NotificationNames.swift in Sources */,

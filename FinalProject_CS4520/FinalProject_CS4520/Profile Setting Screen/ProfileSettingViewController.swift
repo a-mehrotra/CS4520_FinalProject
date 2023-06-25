@@ -21,6 +21,7 @@ class ProfileSettingViewController: UIViewController {
     var currentUser:FirebaseAuth.User?
     let database = Firestore.firestore()
     let storage = Storage.storage()
+    let childProgressView = ProgressSpinnerViewController()
     
     override func loadView() {
         view = settingView
@@ -61,8 +62,10 @@ class ProfileSettingViewController: UIViewController {
         changeRequest?.commitChanges(completion: {(error) in
             if error != nil{
                 print("Error occured: \(String(describing: error))")
+                self.hideActivityIndicator()
             }else{
                 self.navigationController?.popViewController(animated: true)
+                self.hideActivityIndicator()
             }
         })
 
@@ -89,6 +92,7 @@ class ProfileSettingViewController: UIViewController {
             }
         }else{
             self.navigationController?.popViewController(animated: true)
+            self.hideActivityIndicator()
         }
     }
     
@@ -129,6 +133,7 @@ class ProfileSettingViewController: UIViewController {
             }
             else{
 //                let editedProfile = Profile(username: unwrappedName, dob: unwrappedDateOfBirth, bio: unwrappedBio, img: pickedImage ?? (UIImage(systemName: "person"))!)
+                self.showActivityIndicator()
                 
                 database.collection("users").document((currentUser?.uid)!).updateData(["username": unwrappedName, "dob": unwrappedDateOfBirth, "bio": unwrappedBio])
                 uploadProfilePhotoToStorage()
