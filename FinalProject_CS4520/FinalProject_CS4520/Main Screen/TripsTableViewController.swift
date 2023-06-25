@@ -19,13 +19,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         formatter.dateFormat = "MMMM dd yyyy"
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewTrips" , for: indexPath) as! TripsTableViewCell
-//        cell.backgroundColor = UIColor(red: 103, green: 71, blue: 200)
         cell.labelCityCountryName.text = tripsArray[indexPath.row].destination
         cell.labelDate.text = formatter.string(from: tripsArray[indexPath.row].arrivalDate.dateValue()) + "-" + formatter.string(from: tripsArray[indexPath.row].departureDate.dateValue())
         cell.labelTripDescription.text = tripsArray[indexPath.row].tripDescription
         return cell
     }
     
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        getTimeline(self.tripsArray[indexPath.row])
+    }
 }
 

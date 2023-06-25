@@ -95,7 +95,7 @@ class ViewController: UIViewController {
             action: #selector(profileBarButtonTapped)
         )
         
-        let addPostIcon = UIBarButtonItem(
+        let addTripIcon = UIBarButtonItem(
             image: UIImage(systemName: "plus.app.fill"),
             style: .plain,
             target: self,
@@ -103,8 +103,22 @@ class ViewController: UIViewController {
         )
         
         navigationItem.rightBarButtonItems = [barIcon]
-        navigationItem.leftBarButtonItem = addPostIcon
+        navigationItem.leftBarButtonItem = addTripIcon
         
+        changeNavColorToWhite()
+        
+    }
+    
+    func changeNavColorToWhite() {
+        // Create a new instance of UIBarButtonItemAppearance
+        let appearance = UIBarButtonItemAppearance()
+
+        // Set the color of the back button
+        appearance.normal.titleTextAttributes = [.foregroundColor: UIColor.white]
+
+        // Apply the appearance to the navigation bar
+        navigationController?.navigationBar.tintColor = .white
+
     }
     
     
@@ -112,11 +126,6 @@ class ViewController: UIViewController {
         let profileSettingViewController = ProfileSettingViewController()
         navigationController?.pushViewController(profileSettingViewController, animated: true)
     }
-    
-    //    @objc func addNewPostButtonTapped(){
-    //        let addPostViewController = AddPostViewController()
-    //        navigationController?.pushViewController(addPostViewController, animated: true)
-    //    }
     
     
     @objc func addNewTripButtonTapped(){
@@ -184,6 +193,13 @@ class ViewController: UIViewController {
                 self.mainScreen.tableViewTrips.reloadData()
             }
         })
+    }
+    
+    func getTimeline(_ trip: Trip) {
+        let timeline = TimelineViewController()
+        timeline.currentUser = currentUser
+        timeline.tripId = trip.id
+        navigationController?.pushViewController(timeline, animated: true)
     }
     
     func showErrorAlert(_ text: String){

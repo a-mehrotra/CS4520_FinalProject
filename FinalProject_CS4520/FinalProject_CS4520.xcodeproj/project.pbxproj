@@ -42,6 +42,17 @@
 		B39143062A477DA90002F519 /* AddTripProgressManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39143052A477DA90002F519 /* AddTripProgressManager.swift */; };
 		B39143082A4781E90002F519 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39143072A4781E90002F519 /* NotificationNames.swift */; };
 		F42D570C2A4561E8009CB0D7 /* TripsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42D570B2A4561E8009CB0D7 /* TripsTableViewController.swift */; };
+		F49894122A47F8BF00684264 /* AddCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49894112A47F8BF00684264 /* AddCommentView.swift */; };
+		F49894142A47F8F300684264 /* AddCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49894132A47F8F300684264 /* AddCommentViewController.swift */; };
+		F49894172A47F92500684264 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49894162A47F92500684264 /* Post.swift */; };
+		F498941B2A47F96A00684264 /* TimelineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F498941A2A47F96A00684264 /* TimelineTableViewController.swift */; };
+		F498941D2A47F98100684264 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F498941C2A47F98100684264 /* TimelineViewController.swift */; };
+		F498941F2A47F9A300684264 /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F498941E2A47F9A300684264 /* TimelineTableViewCell.swift */; };
+		F49894212A47F9BE00684264 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49894202A47F9BE00684264 /* TimelineView.swift */; };
+		F49894272A485DA800684264 /* CommentVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49894262A485DA800684264 /* CommentVIew.swift */; };
+		F49894292A485DB500684264 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49894282A485DB500684264 /* CommentTableViewCell.swift */; };
+		F498942C2A485DD600684264 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F498942B2A485DD600684264 /* CommentViewController.swift */; };
+		F498942E2A4860E200684264 /* CommentsTablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F498942D2A4860E200684264 /* CommentsTablesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +89,17 @@
 		B39143052A477DA90002F519 /* AddTripProgressManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripProgressManager.swift; sourceTree = "<group>"; };
 		B39143072A4781E90002F519 /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
 		F42D570B2A4561E8009CB0D7 /* TripsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTableViewController.swift; sourceTree = "<group>"; };
+		F49894112A47F8BF00684264 /* AddCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentView.swift; sourceTree = "<group>"; };
+		F49894132A47F8F300684264 /* AddCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentViewController.swift; sourceTree = "<group>"; };
+		F49894162A47F92500684264 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		F498941A2A47F96A00684264 /* TimelineTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewController.swift; sourceTree = "<group>"; };
+		F498941C2A47F98100684264 /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
+		F498941E2A47F9A300684264 /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
+		F49894202A47F9BE00684264 /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
+		F49894262A485DA800684264 /* CommentVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentVIew.swift; sourceTree = "<group>"; };
+		F49894282A485DB500684264 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		F498942B2A485DD600684264 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		F498942D2A4860E200684264 /* CommentsTablesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTablesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,11 +228,14 @@
 		A770F11A2A2FE51900D7547B /* FinalProject_CS4520 */ = {
 			isa = PBXGroup;
 			children = (
+				F49894152A47F91900684264 /* DataModels */,
+				F49894242A485D9300684264 /* View Comments */,
+				F498940F2A47F7F300684264 /* Add Comment */,
 				B39142FB2A47541C0002F519 /* Add Existing Trip */,
 				B3292FE12A43744C009EAE23 /* Progress Indicator */,
 				A770F11B2A2FE51900D7547B /* AppDelegate.swift */,
 				A770F11D2A2FE51900D7547B /* SceneDelegate.swift */,
-				668DCD062A416CEA00FF8F3C /* Trip.swift */,
+				F49894182A47F93E00684264 /* Trip Timeline */,
 				668DCD0C2A42799700FF8F3C /* Add Post Screen */,
 				668DCCF92A401C6300FF8F3C /* Add Trip Screen */,
 				668DCCF42A3FDB3800FF8F3C /* Profile Setting Screen */,
@@ -250,6 +275,70 @@
 			children = (
 				B39143012A4754C90002F519 /* ExistingTripView.swift */,
 				B39143032A4754E90002F519 /* ExistingTripsTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F498940F2A47F7F300684264 /* Add Comment */ = {
+			isa = PBXGroup;
+			children = (
+				F49894102A47F8AB00684264 /* View */,
+				F49894132A47F8F300684264 /* AddCommentViewController.swift */,
+			);
+			path = "Add Comment";
+			sourceTree = "<group>";
+		};
+		F49894102A47F8AB00684264 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F49894112A47F8BF00684264 /* AddCommentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F49894152A47F91900684264 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				668DCD062A416CEA00FF8F3C /* Trip.swift */,
+				F49894162A47F92500684264 /* Post.swift */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		F49894182A47F93E00684264 /* Trip Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				F49894192A47F95100684264 /* View */,
+				F498941C2A47F98100684264 /* TimelineViewController.swift */,
+				F498941A2A47F96A00684264 /* TimelineTableViewController.swift */,
+			);
+			path = "Trip Timeline";
+			sourceTree = "<group>";
+		};
+		F49894192A47F95100684264 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F498941E2A47F9A300684264 /* TimelineTableViewCell.swift */,
+				F49894202A47F9BE00684264 /* TimelineView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F49894242A485D9300684264 /* View Comments */ = {
+			isa = PBXGroup;
+			children = (
+				F49894252A485D9B00684264 /* View */,
+				F498942B2A485DD600684264 /* CommentViewController.swift */,
+				F498942D2A4860E200684264 /* CommentsTablesViewController.swift */,
+			);
+			path = "View Comments";
+			sourceTree = "<group>";
+		};
+		F49894252A485D9B00684264 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F49894262A485DA800684264 /* CommentVIew.swift */,
+				F49894282A485DB500684264 /* CommentTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -336,29 +425,40 @@
 			buildActionMask = 2147483647;
 			files = (
 				A770F1202A2FE51900D7547B /* ViewController.swift in Sources */,
+				F498942E2A4860E200684264 /* CommentsTablesViewController.swift in Sources */,
 				B39142FD2A4754540002F519 /* ExistingTripsTableViewManager.swift in Sources */,
 				B39143042A4754E90002F519 /* ExistingTripsTableViewCell.swift in Sources */,
+				F49894122A47F8BF00684264 /* AddCommentView.swift in Sources */,
+				F498942C2A485DD600684264 /* CommentViewController.swift in Sources */,
 				B3292FE92A4374EC009EAE23 /* SignUpProgressIndicatorManager.swift in Sources */,
+				F49894142A47F8F300684264 /* AddCommentViewController.swift in Sources */,
 				668DCCEB2A3FDA9700FF8F3C /* LogInView.swift in Sources */,
 				A770F11C2A2FE51900D7547B /* AppDelegate.swift in Sources */,
 				668DCD0B2A42798E00FF8F3C /* AddPostView.swift in Sources */,
+				F49894172A47F92500684264 /* Post.swift in Sources */,
 				668DCCE92A3FDA6900FF8F3C /* LogInViewController.swift in Sources */,
 				668DCCED2A3FDAB500FF8F3C /* SignUpView.swift in Sources */,
 				B39142FF2A4754760002F519 /* ExistingTripViewController.swift in Sources */,
+				F498941D2A47F98100684264 /* TimelineViewController.swift in Sources */,
 				A770F11E2A2FE51900D7547B /* SceneDelegate.swift in Sources */,
+				F49894212A47F9BE00684264 /* TimelineView.swift in Sources */,
 				668DCCF12A3FDB0000FF8F3C /* ProfileSettingView.swift in Sources */,
 				668DCD092A42793F00FF8F3C /* AddPostViewController.swift in Sources */,
 				B39143082A4781E90002F519 /* NotificationNames.swift in Sources */,
 				668DCD032A41689B00FF8F3C /* TripsTableViewCell.swift in Sources */,
 				B3292FE32A437471009EAE23 /* ProgressSpinnerViewController.swift in Sources */,
+				F49894272A485DA800684264 /* CommentVIew.swift in Sources */,
 				B39143022A4754C90002F519 /* ExistingTripView.swift in Sources */,
 				B3292FE72A4374C1009EAE23 /* LoginProgressIndicatorManager.swift in Sources */,
 				668DCCF62A401C4700FF8F3C /* AddTripViewController.swift in Sources */,
 				668DCCF32A3FDB2400FF8F3C /* ProfileSettingViewController.swift in Sources */,
 				F42D570C2A4561E8009CB0D7 /* TripsTableViewController.swift in Sources */,
+				F498941F2A47F9A300684264 /* TimelineTableViewCell.swift in Sources */,
 				668DCCE32A3FD9D700FF8F3C /* MainScreenView.swift in Sources */,
 				668DCCE72A3FDA3D00FF8F3C /* SignUpViewController.swift in Sources */,
 				B3292FE52A437491009EAE23 /* ProgressSpinnerDelegate.swift in Sources */,
+				F49894292A485DB500684264 /* CommentTableViewCell.swift in Sources */,
+				F498941B2A47F96A00684264 /* TimelineTableViewController.swift in Sources */,
 				668DCD072A416CEA00FF8F3C /* Trip.swift in Sources */,
 				668DCCF82A401C5D00FF8F3C /* AddTripView.swift in Sources */,
 				B39143062A477DA90002F519 /* AddTripProgressManager.swift in Sources */,
@@ -508,7 +608,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FVHLS4TFT4;
+				DEVELOPMENT_TEAM = 7UFPABUSPC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FinalProject_CS4520/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -536,7 +636,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FVHLS4TFT4;
+				DEVELOPMENT_TEAM = 7UFPABUSPC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FinalProject_CS4520/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

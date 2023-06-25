@@ -2,12 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Your usage description goes here</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
+        <key>NSLocationWhenInUseUsageDescription</key>
+        <string>Your usage description goes here</string>
+
 		<key>UIApplicationSupportsMultipleScenes</key>
 		<false/>
 		<key>UISceneConfigurations</key>
 		<dict>
+            <key>NSLocationWhenInUseUsageDescription</key>
+            <string>Your usage description goes here</string>
 			<key>UIWindowSceneSessionRoleApplication</key>
 			<array>
 				<dict>
@@ -17,6 +24,8 @@
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
 					<string>Main</string>
+                    <key>NSLocationWhenInUseUsageDescription</key>
+                    <string>This app requires your location to provide geotagged string in posts.</string>
 				</dict>
 			</array>
 		</dict>
