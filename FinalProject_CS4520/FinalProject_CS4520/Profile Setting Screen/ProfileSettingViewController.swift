@@ -120,7 +120,7 @@ class ProfileSettingViewController: UIViewController {
     
     func formatDate(date: Date) -> String{
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMMM dd yyyy"
+        formatter.dateFormat = "MM/dd/YYYY"
         return formatter.string(from: date)
     }
     
