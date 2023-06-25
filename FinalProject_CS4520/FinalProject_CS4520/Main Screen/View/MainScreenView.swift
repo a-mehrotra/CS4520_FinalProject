@@ -21,6 +21,7 @@ class MainScreenView: UIView {
     
     var tripTitle: UILabel!
     var tableViewTrips: UITableView!
+    var schengenButton: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,7 +33,7 @@ class MainScreenView: UIView {
         setUpWelcomeTitle()
         setUpLoginButton()
         setUpSignUpButton()
-        
+        setupSchengenButton()
         setUpTripLabel()
         setUpTableViewTrips()
         
@@ -132,13 +133,28 @@ class MainScreenView: UIView {
         self.addSubview(signupButton)
     }
     
+    func setupSchengenButton() {
+        schengenButton = UIButton(type: .system)
+        schengenButton.setTitle("Check Schengen Stay", for: .normal)
+        schengenButton.setTitleColor(UIColor(red: 103, green: 71, blue: 200), for: .normal)
+        schengenButton.layer.cornerRadius = 15.0
+        schengenButton.backgroundColor = .white
+        schengenButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        schengenButton.contentEdgeInsets =  UIEdgeInsets(top: 12, left: 120, bottom: 12, right: 120)
+        schengenButton.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(schengenButton)
+    }
+    
     func initConstraints(){
         NSLayoutConstraint.activate([
             tripTitle.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 10),
             tripTitle.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 22),
             
+            schengenButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -12),
+            schengenButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            
             tableViewTrips.topAnchor.constraint(equalTo: tripTitle.bottomAnchor, constant: 20),
-            tableViewTrips.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -8),
+            tableViewTrips.bottomAnchor.constraint(equalTo: schengenButton.topAnchor, constant: -8),
             tableViewTrips.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 10),
             tableViewTrips.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -10),
             

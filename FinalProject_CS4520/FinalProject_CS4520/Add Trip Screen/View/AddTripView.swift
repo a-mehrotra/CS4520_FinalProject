@@ -14,6 +14,9 @@ class AddTripView: UIView {
     var departureDateTextField: UITextField!
     var visaLengthTextField: UITextField!
     var tripDescriptionTextField: UITextField!
+    var schengenBox: UIButton!
+    var schengenLabel: UILabel!
+    var stackView: UIStackView!
 
     var submitButton: UIButton!
     
@@ -26,9 +29,30 @@ class AddTripView: UIView {
         setupTextFieldArrivalDate()
         setupTextFieldDepartureDate()
         setupTextFieldVisaLength()
+        setupSchengen()
         setupTextFieldTripDescription()
         setUpSubmitButton()
         initConstraints()
+    }
+    
+    func setupSchengen() {
+        schengenBox = UIButton(type: .system)
+        schengenBox.tintColor = .white
+        var checkbox = UIImage(systemName: "checkmark.square")
+        checkbox = checkbox?.resized(to: CGSize(width: 20, height: 20))
+        schengenBox.setImage(checkbox, for: .normal)
+        
+        schengenLabel = UILabel()
+        schengenLabel.text = "Shengen Area? "
+        schengenLabel.font = UIFont.systemFont(ofSize: 14)
+        schengenLabel.textColor = .white
+        
+        stackView = UIStackView(arrangedSubviews: [schengenBox, schengenLabel])
+        stackView.axis = .horizontal
+        stackView.spacing = 8
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.addSubview(stackView)
     }
     
     func setupDestinationTextField(){
@@ -132,7 +156,10 @@ class AddTripView: UIView {
             visaLengthTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -30),
             visaLengthTextField.heightAnchor.constraint(equalToConstant: 46),
             
-            tripDescriptionTextField.topAnchor.constraint(equalTo: visaLengthTextField.bottomAnchor , constant: 42),
+            stackView.topAnchor.constraint(equalTo: visaLengthTextField.bottomAnchor, constant: 30),
+            stackView.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            
+            tripDescriptionTextField.topAnchor.constraint(equalTo: stackView.bottomAnchor , constant: 42),
             tripDescriptionTextField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 30),
             tripDescriptionTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -30),
             tripDescriptionTextField.heightAnchor.constraint(equalToConstant: 120),
