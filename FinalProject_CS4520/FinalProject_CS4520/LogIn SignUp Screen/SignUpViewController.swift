@@ -25,6 +25,29 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         
         signUpView.submitButton.addTarget(self, action: #selector(onSubmitButtonTapped), for: .touchUpInside)
+        
+        changeNavColorToWhite()
+        //MARK: recognizing the taps on the app screen, not the keyboard...
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboardOnTap))
+        view.addGestureRecognizer(tapRecognizer)
+    }
+    
+    //MARK: Hide Keyboard...
+    @objc func hideKeyboardOnTap(){
+        //MARK: removing the keyboard from screen...
+        view.endEditing(true)
+    }
+    
+    func changeNavColorToWhite() {
+        // Create a new instance of UIBarButtonItemAppearance
+        let appearance = UIBarButtonItemAppearance()
+
+        // Set the color of the back button
+        appearance.normal.titleTextAttributes = [.foregroundColor: UIColor.white]
+
+        // Apply the appearance to the navigation bar
+        navigationController?.navigationBar.tintColor = .white
+
     }
     
     @objc func onSubmitButtonTapped(){

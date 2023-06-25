@@ -1,54 +1,72 @@
 //
 //  AddCommentView.swift
-//  WA8_Rodrigues_3891
+//  FinalProject_CS4520
 //
-//  Created by John Rodrigues on 6/13/23.
+//  Created by Lâm Trương on 6/20/23.
 //
 
 import UIKit
 
 class AddCommentView: UIView {
-    var messageBox: UIView!
-    var messageText: UITextView!
+    var commentBox: UIView!
+    var commentText: UITextView!
     var submitButton: UIButton!
     var contentWrapper:UIScrollView!
     
+    var createCommentLable: UILabel!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .white
+        let color = UIColor(red: 103, green: 71, blue: 200)
+        self.backgroundColor = color
         
         setupContentWrapper()
-        setupMessageBox()
-        setupMessageText()
+        setupCommentBox()
+        setupCommentText()
         setupSubmitButton()
+        setUpCreateCommentTitle()
         initConstraints()
     }
     
-    func setupMessageBox() {
-        messageBox = UIView()
-        messageBox.translatesAutoresizingMaskIntoConstraints = false
+    func setupCommentBox() {
+        commentBox = UIView()
+        commentBox.translatesAutoresizingMaskIntoConstraints = false
         
-        contentWrapper.addSubview(messageBox)
+        contentWrapper.addSubview(commentBox)
     }
     
-    func setupMessageText() {
-        messageText = UITextView()
-        messageText.font = UIFont.systemFont(ofSize: 16)
-        messageText.layer.cornerRadius = 10
-        messageText.layer.borderWidth = 1
-        messageText.layer.borderColor = UIColor.black.cgColor
-        messageText.translatesAutoresizingMaskIntoConstraints = false
-        messageText.delegate = self
+    func setUpCreateCommentTitle(){
+        createCommentLable = UILabel()
+        createCommentLable.text = "Create Comment"
+        createCommentLable.textColor = .white
+        createCommentLable.font = UIFont.boldSystemFont(ofSize: 44)
+        createCommentLable.textAlignment = .center
+        createCommentLable.translatesAutoresizingMaskIntoConstraints = false
+        contentWrapper.addSubview(createCommentLable)
+    }
+    
+    func setupCommentText() {
+        commentText = UITextView()
+        commentText.font = UIFont.systemFont(ofSize: 16)
+        commentText.layer.cornerRadius = 10
+        commentText.layer.borderWidth = 1
+        commentText.layer.borderColor = UIColor.white.cgColor
+        commentText.translatesAutoresizingMaskIntoConstraints = false
+        commentText.delegate = self
         
-        messageBox.addSubview(messageText)
+        commentBox.addSubview(commentText)
     }
     
     func setupSubmitButton() {
         submitButton = UIButton(type: .system)
         submitButton.setTitle("Submit", for: .normal)
+        submitButton.layer.cornerRadius = 15.0
+        submitButton.backgroundColor = UIColor(red: 54, green: 10, blue: 138)
+        submitButton.setTitleColor(.white, for: .normal)
+        submitButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        submitButton.contentEdgeInsets =  UIEdgeInsets(top: 8, left: 30, bottom: 8, right: 30)
         submitButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        messageBox.addSubview(submitButton)
+        contentWrapper.addSubview(submitButton)
     }
     
     //MARK: setting up UI elements...
@@ -66,25 +84,28 @@ class AddCommentView: UIView {
             contentWrapper.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             contentWrapper.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
             
-            messageBox.topAnchor.constraint(equalTo: contentWrapper.topAnchor),
-            messageBox.leadingAnchor.constraint(equalTo: contentWrapper.leadingAnchor),
-            messageBox.trailingAnchor.constraint(equalTo: contentWrapper.trailingAnchor),
-            messageBox.centerXAnchor.constraint(equalTo: contentWrapper.centerXAnchor),
+            createCommentLable.topAnchor.constraint(equalTo: contentWrapper.topAnchor),
+            createCommentLable.centerXAnchor.constraint(equalTo: contentWrapper.centerXAnchor),
             
-            messageText.topAnchor.constraint(equalTo: messageBox.topAnchor, constant: 8),
-            messageText.leadingAnchor.constraint(equalTo: messageBox.leadingAnchor, constant: 8),
-            messageText.trailingAnchor.constraint(equalTo: messageBox.trailingAnchor, constant: -8),
-            messageText.bottomAnchor.constraint(equalTo: submitButton.topAnchor, constant: -8),
-            messageText.heightAnchor.constraint(greaterThanOrEqualToConstant: 30),
-            messageText.centerXAnchor.constraint(equalTo: contentWrapper.centerXAnchor),
+            commentBox.topAnchor.constraint(equalTo: createCommentLable.bottomAnchor, constant: 20),
+            commentBox.leadingAnchor.constraint(equalTo: contentWrapper.leadingAnchor),
+            commentBox.trailingAnchor.constraint(equalTo: contentWrapper.trailingAnchor),
+            commentBox.centerXAnchor.constraint(equalTo: contentWrapper.centerXAnchor),
             
-            submitButton.leadingAnchor.constraint(equalTo: messageBox.leadingAnchor, constant: 8),
-            submitButton.trailingAnchor.constraint(equalTo: messageBox.trailingAnchor, constant: -8),
-            submitButton.bottomAnchor.constraint(equalTo: messageBox.bottomAnchor, constant: -8),
-            submitButton.heightAnchor.constraint(equalToConstant: 50),
-            submitButton.centerXAnchor.constraint(equalTo: contentWrapper.centerXAnchor)
+            commentText.topAnchor.constraint(equalTo: commentBox.topAnchor, constant: 8),
+            commentText.leadingAnchor.constraint(equalTo: commentBox.leadingAnchor, constant: 8),
+            commentText.trailingAnchor.constraint(equalTo: commentBox.trailingAnchor, constant: -8),
+            commentText.bottomAnchor.constraint(equalTo: submitButton.topAnchor, constant: -8),
+            commentText.heightAnchor.constraint(greaterThanOrEqualToConstant: 30),
+            commentText.centerXAnchor.constraint(equalTo: contentWrapper.centerXAnchor),
+            
+            submitButton.topAnchor.constraint(equalTo: commentText.bottomAnchor , constant: 50),
+            submitButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            
+            commentBox.bottomAnchor.constraint(equalTo: submitButton.bottomAnchor, constant: 20) // Added constraint to prevent overlap
         ])
     }
+
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -97,7 +118,7 @@ extension AddCommentView: UITextViewDelegate {
         let fixedWidth = textView.frame.size.width
         let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: .greatestFiniteMagnitude))
         textView.frame.size = CGSize(width: fixedWidth, height: max(newSize.height, 30))
-        messageText.constraints.forEach { constraint in
+        commentText.constraints.forEach { constraint in
             if constraint.firstAttribute == .height {
                 constraint.constant = max(newSize.height, 30)
             }
@@ -105,7 +126,7 @@ extension AddCommentView: UITextViewDelegate {
         self.layoutIfNeeded()
         
         // Set the content size of the contentWrapper
-        let totalHeight = messageBox.frame.height + 16
+        let totalHeight = commentBox.frame.height + submitButton.frame.height + 80
         contentWrapper.contentSize = CGSize(width: frame.width, height: totalHeight)
     }
 }

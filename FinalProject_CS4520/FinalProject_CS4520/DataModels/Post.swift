@@ -15,7 +15,8 @@ struct Post: Codable{
     var caption: String
     var location: String
 
-    init(username: String, dateTime: Timestamp, caption: String, location: String) {
+    init(id: String? = nil, username: String, dateTime: Timestamp, caption: String, location: String) {
+        self.id = id
         self.username = username
         self.dateTime = dateTime
         self.caption = caption

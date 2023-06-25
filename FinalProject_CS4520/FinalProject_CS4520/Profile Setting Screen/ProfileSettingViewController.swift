@@ -21,6 +21,20 @@ class ProfileSettingViewController: UIViewController {
         super.viewDidLoad()
         
         settingView.signOutButton.addTarget(self, action: #selector(onLogOutButtonTapped), for: .touchUpInside)
+        
+        changeNavColorToWhite()
+    }
+    
+    func changeNavColorToWhite() {
+        // Create a new instance of UIBarButtonItemAppearance
+        let appearance = UIBarButtonItemAppearance()
+
+        // Set the color of the back button
+        appearance.normal.titleTextAttributes = [.foregroundColor: UIColor.white]
+
+        // Apply the appearance to the navigation bar
+        navigationController?.navigationBar.tintColor = .white
+
     }
     
     @objc func onLogOutButtonTapped(){

@@ -82,6 +82,7 @@ class SignUpView: UIView {
         userNameTextField.leftViewMode = .always
         userNameTextField.leftView = UIView(frame: CGRect(x:0,y:0,width:5,height:0))
         userNameTextField.layer.cornerRadius = 15.0
+        userNameTextField.textColor = .black
 //        userNameTextField.layer.borderWidth = 2.0
         userNameTextField.backgroundColor = .white
         userNameTextField.layer.borderColor = UIColor.white.cgColor
@@ -93,6 +94,7 @@ class SignUpView: UIView {
         emailTextField = UITextField()
         emailTextField.placeholder = "Email"
         emailTextField.leftViewMode = .always
+        emailTextField.textColor = .black
         emailTextField.leftView = UIView(frame: CGRect(x:0,y:0,width:5,height:0))
         emailTextField.layer.cornerRadius = 15.0
 //        userNameTextField.layer.borderWidth = 2.0
@@ -107,6 +109,7 @@ class SignUpView: UIView {
         dateOfBirthTextField = UITextField()
         dateOfBirthTextField.placeholder = "MM/DD/YY"
         dateOfBirthTextField.leftViewMode = .always
+        dateOfBirthTextField.textColor = .black
         dateOfBirthTextField.leftView = UIView(frame: CGRect(x:0,y:0,width:5,height:0))
         dateOfBirthTextField.layer.cornerRadius = 15.0
 //        userNameTextField.layer.borderWidth = 2.0
@@ -120,6 +123,9 @@ class SignUpView: UIView {
         passWordTextField = UITextField()
         passWordTextField.placeholder = "Password"
         passWordTextField.leftViewMode = .always
+        passWordTextField.textColor = .black
+        passWordTextField.textContentType = .password
+        passWordTextField.isSecureTextEntry = true
         passWordTextField.leftView = UIView(frame: CGRect(x:0,y:0,width:5,height:0))
         passWordTextField.layer.cornerRadius = 15.0
 //        userNameTextField.layer.borderWidth = 2.0
