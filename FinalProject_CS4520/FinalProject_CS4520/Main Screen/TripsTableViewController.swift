@@ -20,7 +20,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewTrips" , for: indexPath) as! TripsTableViewCell
         cell.labelCityCountryName.text = tripsArray[indexPath.row].destination
-        cell.labelDate.text = formatter.string(from: tripsArray[indexPath.row].arrivalDate.dateValue()) + "-" + formatter.string(from: tripsArray[indexPath.row].departureDate.dateValue())
+        cell.labelDate.text = formatter.string(from: tripsArray[indexPath.row].arrivalDate.dateValue()) + " - " + formatter.string(from: tripsArray[indexPath.row].departureDate.dateValue())
         cell.labelTripDescription.text = tripsArray[indexPath.row].tripDescription
         return cell
     }
