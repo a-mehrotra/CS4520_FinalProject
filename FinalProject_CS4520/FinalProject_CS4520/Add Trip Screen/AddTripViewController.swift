@@ -129,7 +129,7 @@ class AddTripViewController: UIViewController {
     func formatDate(date: Date) -> String{
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_us")
-        formatter.dateFormat = "MMMM dd yyyy"
+        formatter.dateFormat = "MM/dd/YYYY"
         return formatter.string(from: date)
     }
     
