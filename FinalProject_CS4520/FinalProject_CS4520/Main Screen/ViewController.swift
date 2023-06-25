@@ -59,10 +59,14 @@ class ViewController: UIViewController {
         mainScreen.tableViewTrips.separatorStyle = .none
         
         notificationCenter.addObserver(self, selector: #selector(tripAdded), name: .tripAdded, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(tripAdded), name: .userAdded, object: nil)
+
     }
+    
     @objc func tripAdded() {
         self.updateTrips()
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         Auth.auth().removeStateDidChangeListener(handleAuth!)
@@ -74,7 +78,6 @@ class ViewController: UIViewController {
         
         //        var profileSettingViewController = ProfileSettingViewController()
         //        navigationController?.pushViewController(profileSettingViewController, animated: true)
-        
         
     }
     
@@ -132,7 +135,7 @@ class ViewController: UIViewController {
         let addExistingTripAction = UIAlertAction(title: "Add Existing Trip", style: .default, handler: {(_) in
             //MARK: logic to open the register screen...
             let existingTripViewController = ExistingTripViewController()
-            
+            existingTripViewController.currentUser = self.currentUser
             self.navigationController?.pushViewController(existingTripViewController, animated: true)
         })
         
@@ -141,8 +144,6 @@ class ViewController: UIViewController {
         addTripOptionAlert.addAction(addExistingTripAction)
         
         self.present(addTripOptionAlert, animated: true)
-        
-        
     }
     
     func loggedInContentShow(_ value: Bool) {
@@ -152,7 +153,6 @@ class ViewController: UIViewController {
         if value {
             self.updateTrips()
         }
-        
         
         navigationItem.rightBarButtonItem?.isHidden = !value
         navigationItem.leftBarButtonItem?.isHidden = !value
@@ -166,15 +166,9 @@ class ViewController: UIViewController {
         mainScreen.signupButton.isHidden = value
     }
     
-    
-    
     func updateTrips() {
         self.tripsArray.removeAll()
-        
-        print("hello")
-        print("test")
-        print((currentUser?.uid)!)
-        
+                
         self.database.collection("trips").whereField("userArray", arrayContains: (currentUser?.uid)!).getDocuments(completion: {(querySnapshot, error) in
             if let documents = querySnapshot?.documents {
                 self.tripsArray.removeAll()
@@ -189,17 +183,8 @@ class ViewController: UIViewController {
                 }
                 self.mainScreen.tableViewTrips.reloadData()
             }
-            
-            
-            
         })
-        
-        
     }
-    
-  
-    
-    
     
     func showErrorAlert(_ text: String){
         let alert = UIAlertController(title: "Error!", message: text, preferredStyle: .alert)

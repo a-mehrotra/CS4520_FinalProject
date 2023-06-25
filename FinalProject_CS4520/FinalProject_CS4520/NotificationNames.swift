@@ -10,4 +10,5 @@ import Foundation
 
 extension Notification.Name{
     static let tripAdded = Notification.Name("tripAdded")
+    static let userAdded = Notification.Name("userAdded")
 }
