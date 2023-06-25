@@ -124,7 +124,6 @@ class AddTripViewController: UIViewController {
         datePickerDeparture.datePickerMode = .date
         datePickerDeparture?.preferredDatePickerStyle = .inline
         datePickerDeparture?.addTarget(self, action: #selector(dateChangeDeparture(datePicker:)), for: .valueChanged)
-        datePickerDeparture.maximumDate = Date()
         
         addTripView.arrivalDateTextField.inputView = datePickerArrival
         addTripView.departureDateTextField.inputView = datePickerDeparture
