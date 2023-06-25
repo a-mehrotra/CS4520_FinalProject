@@ -127,8 +127,7 @@ class ProfileSettingViewController: UIViewController {
     
     @objc func saveButtonTapped(){
         if let unwrappedName = settingView.userNameTextField.text, let unwrappedDateOfBirth = settingView.dateOfBirthTextField.text, let unwrappedBio = settingView.bioTextField.text{
-            if unwrappedName.isEmpty || unwrappedDateOfBirth.isEmpty || unwrappedBio.isEmpty
-            {
+            if unwrappedName.isEmpty || unwrappedDateOfBirth.isEmpty            {
                 showErrorAlert(message: "Please complete the fields to continue")
             }
             else{
