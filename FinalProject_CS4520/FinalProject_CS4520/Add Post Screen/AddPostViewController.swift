@@ -146,7 +146,10 @@ class AddPostViewController: UIViewController {
         database.collection("trips").document(self.tripId!).collection("timeline").addDocument(data: ["username": post.username,
              "dateTime": post.dateTime,
              "caption": post.caption,
-             "location": post.location], completion: {error in if error == nil {
+             "location": post.location,
+             "comments": 0,
+             "likes": 0],
+        completion: {error in if error == nil {
                  self.hideActivityIndicator()
                  self.navigationController?.popViewController(animated: true)
              }
