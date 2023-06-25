@@ -8,6 +8,9 @@
 import UIKit
 
 class ProfileInfoView: UIView {
+    
+    var scrollView: UIScrollView!
+    var contentView: UIView!
 
     var imageProfile: UIImageView!
     
@@ -24,6 +27,8 @@ class ProfileInfoView: UIView {
         super.init(frame: frame)
         let color = UIColor(red: 103, green: 71, blue: 200)
         self.backgroundColor = color
+        setupScrollView()
+        setupContentView()
         setUpLogoImage()
         setupLabelUserName()
         setupLabelDateOfBirth()
@@ -35,6 +40,33 @@ class ProfileInfoView: UIView {
         initConstraints()
     }
     
+    func setupScrollView() {
+        scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(scrollView)
+        
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+    
+    func setupContentView() {
+        contentView = UIView()
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(contentView)
+        
+        NSLayoutConstraint.activate([
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+        ])
+    }
+    
     func setUpLogoImage(){
         imageProfile = UIImageView()
         imageProfile.image = UIImage(systemName: "person")
@@ -42,7 +74,7 @@ class ProfileInfoView: UIView {
         imageProfile.clipsToBounds = true
         imageProfile.layer.cornerRadius = 10
         imageProfile.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(imageProfile)
+        contentView.addSubview(imageProfile)
     }
     
     func setupLabelUserName(){
@@ -51,17 +83,17 @@ class ProfileInfoView: UIView {
         userNameLabel.textColor = .white
         userNameLabel.textAlignment = .center
         userNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(userNameLabel)
+        contentView.addSubview(userNameLabel)
     }
     
 
     func setupLabelDateOfBirth(){
         dateOfBirthLabel = UILabel()
-        dateOfBirthLabel.font = UIFont.systemFont(ofSize: 14)
+        dateOfBirthLabel.font = UIFont.italicSystemFont(ofSize: 14)
         dateOfBirthLabel.textColor = .white
         dateOfBirthLabel.textAlignment = .center
         dateOfBirthLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(dateOfBirthLabel)
+        contentView.addSubview(dateOfBirthLabel)
     }
     
     func setupLabelBio(){
@@ -71,17 +103,17 @@ class ProfileInfoView: UIView {
         bioLabel.textColor = .white
         bioLabel.textAlignment = .center
         bioLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(bioLabel)
+        contentView.addSubview(bioLabel)
     }
     
     func setupLabelBioInfo(){
         bioInfoLabel = UILabel()
-        bioInfoLabel.font = UIFont.systemFont(ofSize: 18)
+        bioInfoLabel.font = UIFont.italicSystemFont(ofSize: 18)
         bioInfoLabel.numberOfLines = 0
         bioInfoLabel.textColor = .white
         bioInfoLabel.textAlignment = .center
         bioInfoLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(bioInfoLabel)
+        contentView.addSubview(bioInfoLabel)
     }
     
     func setUpEditProfileButton(){
@@ -93,7 +125,7 @@ class ProfileInfoView: UIView {
         editProfleButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         editProfleButton.contentEdgeInsets =  UIEdgeInsets(top: 8, left: 46, bottom: 8, right: 46)
         editProfleButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(editProfleButton)
+        contentView.addSubview(editProfleButton)
     }
 
     func setUpSaveInfoButton(){
@@ -105,17 +137,17 @@ class ProfileInfoView: UIView {
         signOutButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         signOutButton.contentEdgeInsets =  UIEdgeInsets(top: 8, left: 30, bottom: 8, right: 30)
         signOutButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(signOutButton)
+        contentView.addSubview(signOutButton)
     }
 
     func initConstraints(){
         NSLayoutConstraint.activate([
-            imageProfile.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor , constant: 22),
-            imageProfile.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            imageProfile.topAnchor.constraint(equalTo: contentView.topAnchor , constant: 22),
+            imageProfile.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             imageProfile.heightAnchor.constraint(equalToConstant: 120),
             imageProfile.widthAnchor.constraint(equalToConstant: 120),
             
-            userNameLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor , constant: 40),
+            userNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor , constant: 40),
             userNameLabel.leadingAnchor.constraint(equalTo: imageProfile.trailingAnchor, constant: 10),
             userNameLabel.heightAnchor.constraint(equalToConstant: 27),
             
@@ -124,18 +156,19 @@ class ProfileInfoView: UIView {
             dateOfBirthLabel.heightAnchor.constraint(equalToConstant: 27),
              
             bioLabel.topAnchor.constraint(equalTo: imageProfile.bottomAnchor , constant: 40),
-            bioLabel.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            bioLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
             bioInfoLabel.topAnchor.constraint(equalTo: bioLabel.bottomAnchor , constant: 20),
-            bioInfoLabel.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            bioInfoLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            bioInfoLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            bioInfoLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            bioInfoLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            bioInfoLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+
+            editProfleButton.topAnchor.constraint(equalTo: bioInfoLabel.bottomAnchor,constant: 60),
+            editProfleButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
-            signOutButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor,constant: -10),
-            signOutButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            
-            editProfleButton.bottomAnchor.constraint(equalTo: signOutButton.topAnchor,constant: -14),
-            editProfleButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor)
+            signOutButton.topAnchor.constraint(equalTo: editProfleButton.bottomAnchor,constant: 14),
+            signOutButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            signOutButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
     
 
         ])

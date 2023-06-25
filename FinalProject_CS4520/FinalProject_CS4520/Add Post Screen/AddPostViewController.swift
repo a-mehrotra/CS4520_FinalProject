@@ -208,3 +208,22 @@ extension AddPostViewController:ProgressSpinnerDelegate{
         childProgressView.removeFromParent()
     }
 }
+
+extension AddPostViewController: UITextFieldDelegate {
+    // UITextFieldDelegate method
+        func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+            // Define the maximum character limit
+            let maxLength = 60
+            
+            // Calculate the new length of the text if the change is allowed
+            let currentText = textField.text ?? ""
+            let updatedText = (currentText as NSString).replacingCharacters(in: range, with: string)
+            
+            // Check if the updated text exceeds the maximum length
+            if updatedText.count > maxLength {
+                return false // Return false to prevent further typing
+            }
+            
+            return true // Return true to allow the change
+        }
+}

@@ -38,6 +38,7 @@ class AddTripViewController: UIViewController {
         addTripView.submitButton.addTarget(self, action: #selector(submitButtonPressed), for: .touchUpInside)
         addTripView.schengenBox.addTarget(self, action: #selector(canCheckSchengen), for: .touchUpInside)
         changeNavColorToWhite()
+        addTripView.tripDescriptionTextField.delegate = self
     }
     
     func changeNavColorToWhite() {
@@ -159,4 +160,23 @@ class AddTripViewController: UIViewController {
         self.present(alert, animated: true)
     }
 
+}
+
+extension AddTripViewController: UITextFieldDelegate {
+    // UITextFieldDelegate method
+        func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+            // Define the maximum character limit
+            let maxLength = 35
+            
+            // Calculate the new length of the text if the change is allowed
+            let currentText = textField.text ?? ""
+            let updatedText = (currentText as NSString).replacingCharacters(in: range, with: string)
+            
+            // Check if the updated text exceeds the maximum length
+            if updatedText.count > maxLength {
+                return false // Return false to prevent further typing
+            }
+            
+            return true // Return true to allow the change
+        }
 }

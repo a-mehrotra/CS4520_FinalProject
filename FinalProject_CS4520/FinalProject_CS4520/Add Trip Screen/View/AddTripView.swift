@@ -1,13 +1,9 @@
-////
-////  AddTripView.swift
-////  FinalProject_CS4520
-////
-////  Created by Lâm Trương on 6/19/23.
-////
-//
 import UIKit
 
 class AddTripView: UIView {
+    
+    var scrollView: UIScrollView!
+    var contentView: UIView!
     
     var destinationTextField: UITextField!
     var arrivalDateTextField: UITextField!
@@ -17,14 +13,15 @@ class AddTripView: UIView {
     var schengenBox: UIButton!
     var schengenLabel: UILabel!
     var stackView: UIStackView!
-
-    var submitButton: UIButton!
     
+    var submitButton: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         let color = UIColor(red: 103, green: 71, blue: 200)
         self.backgroundColor = color
+        setupScrollView()
+        setupContentView()
         setupDestinationTextField()
         setupTextFieldArrivalDate()
         setupTextFieldDepartureDate()
@@ -35,6 +32,33 @@ class AddTripView: UIView {
         initConstraints()
     }
     
+    func setupScrollView() {
+        scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(scrollView)
+        
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: self.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+        ])
+    }
+    
+    func setupContentView() {
+        contentView = UIView()
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(contentView)
+        
+        NSLayoutConstraint.activate([
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+        ])
+    }
+    
     func setupSchengen() {
         schengenBox = UIButton(type: .system)
         schengenBox.tintColor = .white
@@ -43,7 +67,7 @@ class AddTripView: UIView {
         schengenBox.setImage(checkbox, for: .normal)
         
         schengenLabel = UILabel()
-        schengenLabel.text = "Shengen Area? "
+        schengenLabel.text = "Schengen Area? "
         schengenLabel.font = UIFont.systemFont(ofSize: 14)
         schengenLabel.textColor = .white
         
@@ -52,7 +76,7 @@ class AddTripView: UIView {
         stackView.spacing = 8
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
-        self.addSubview(stackView)
+        contentView.addSubview(stackView)
     }
     
     func setupDestinationTextField(){
@@ -61,11 +85,10 @@ class AddTripView: UIView {
         destinationTextField.leftViewMode = .always
         destinationTextField.leftView = UIView(frame: CGRect(x:0,y:0,width:8,height:0))
         destinationTextField.layer.cornerRadius = 15.0
-//        userNameTextField.layer.borderWidth = 2.0
         destinationTextField.backgroundColor = .white
         destinationTextField.layer.borderColor = UIColor.white.cgColor
         destinationTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(destinationTextField)
+        contentView.addSubview(destinationTextField)
     }
     
     func setupTextFieldArrivalDate(){
@@ -74,13 +97,10 @@ class AddTripView: UIView {
         arrivalDateTextField.leftViewMode = .always
         arrivalDateTextField.leftView = UIView(frame: CGRect(x:0,y:0,width:8,height:0))
         arrivalDateTextField.layer.cornerRadius = 15.0
-//        userNameTextField.layer.borderWidth = 2.0
         arrivalDateTextField.backgroundColor = .white
         arrivalDateTextField.layer.borderColor = UIColor.white.cgColor
         arrivalDateTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(arrivalDateTextField)
-        
-        
+        contentView.addSubview(arrivalDateTextField)
     }
     
     func setupTextFieldDepartureDate(){
@@ -89,11 +109,10 @@ class AddTripView: UIView {
         departureDateTextField.leftViewMode = .always
         departureDateTextField.leftView = UIView(frame: CGRect(x:0,y:0,width:8,height:0))
         departureDateTextField.layer.cornerRadius = 15.0
-//        userNameTextField.layer.borderWidth = 2.0
         departureDateTextField.backgroundColor = .white
         departureDateTextField.layer.borderColor = UIColor.white.cgColor
         departureDateTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(departureDateTextField)
+        contentView.addSubview(departureDateTextField)
     }
     
     func setupTextFieldVisaLength(){
@@ -102,26 +121,24 @@ class AddTripView: UIView {
         visaLengthTextField.leftViewMode = .always
         visaLengthTextField.leftView = UIView(frame: CGRect(x:0,y:0,width:8,height:0))
         visaLengthTextField.layer.cornerRadius = 15.0
-//        userNameTextField.layer.borderWidth = 2.0
         visaLengthTextField.backgroundColor = .white
         visaLengthTextField.layer.borderColor = UIColor.white.cgColor
         visaLengthTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(visaLengthTextField)
+        contentView.addSubview(visaLengthTextField)
     }
     
     func setupTextFieldTripDescription(){
         tripDescriptionTextField = UITextField()
-        tripDescriptionTextField.placeholder = "Trip Description"
+        tripDescriptionTextField.placeholder = "Trip Description (35 character limit)"
         tripDescriptionTextField.leftViewMode = .always
         tripDescriptionTextField.leftView = UIView(frame: CGRect(x:0,y:0,width:8,height:0))
         tripDescriptionTextField.layer.cornerRadius = 15.0
-//        userNameTextField.layer.borderWidth = 2.0
         tripDescriptionTextField.backgroundColor = .white
         tripDescriptionTextField.layer.borderColor = UIColor.white.cgColor
         tripDescriptionTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(tripDescriptionTextField)
+        contentView.addSubview(tripDescriptionTextField)
     }
-
+    
     func setUpSubmitButton(){
         submitButton = UIButton(type: .system)
         submitButton.setTitle("Submit", for: .normal)
@@ -131,48 +148,52 @@ class AddTripView: UIView {
         submitButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         submitButton.contentEdgeInsets =  UIEdgeInsets(top: 8, left: 30, bottom: 8, right: 30)
         submitButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(submitButton)
+        contentView.addSubview(submitButton)
     }
-
+    
     func initConstraints(){
         NSLayoutConstraint.activate([
-            destinationTextField.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor , constant: 62),
-            destinationTextField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 30),
-            destinationTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -30),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            
+            destinationTextField.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 62),
+            destinationTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
+            destinationTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30),
             destinationTextField.heightAnchor.constraint(equalToConstant: 46),
             
             arrivalDateTextField.topAnchor.constraint(equalTo: destinationTextField.bottomAnchor , constant: 42),
-            arrivalDateTextField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 30),
-            arrivalDateTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -30),
+            arrivalDateTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
+            arrivalDateTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30),
             arrivalDateTextField.heightAnchor.constraint(equalToConstant: 46),
             
             departureDateTextField.topAnchor.constraint(equalTo: arrivalDateTextField.bottomAnchor , constant: 42),
-            departureDateTextField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 30),
-            departureDateTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -30),
+            departureDateTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
+            departureDateTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30),
             departureDateTextField.heightAnchor.constraint(equalToConstant: 46),
             
             visaLengthTextField.topAnchor.constraint(equalTo: departureDateTextField.bottomAnchor , constant: 42),
-            visaLengthTextField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 30),
-            visaLengthTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -30),
+            visaLengthTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
+            visaLengthTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30),
             visaLengthTextField.heightAnchor.constraint(equalToConstant: 46),
             
             stackView.topAnchor.constraint(equalTo: visaLengthTextField.bottomAnchor, constant: 30),
-            stackView.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            stackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
             tripDescriptionTextField.topAnchor.constraint(equalTo: stackView.bottomAnchor , constant: 42),
-            tripDescriptionTextField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 30),
-            tripDescriptionTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -30),
+            tripDescriptionTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
+            tripDescriptionTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30),
             tripDescriptionTextField.heightAnchor.constraint(equalToConstant: 120),
             
             submitButton.topAnchor.constraint(equalTo: tripDescriptionTextField.bottomAnchor , constant: 50),
-            submitButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            
+            submitButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            submitButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
         ])
     }
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 }
